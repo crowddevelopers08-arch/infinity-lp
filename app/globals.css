@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
 
 @custom-variant dark (&:is(.dark *));
 
@@ -644,6 +651,26 @@
 
 .page-scroll-reveal-extra-slow .page-scroll-from-right {
   transform: translate3d(70px, 30px, 0);
+}
+
+@media (max-width: 767px) {
+  .page-scroll-reveal {
+    width: 100%;
+    overflow-x: clip;
+  }
+
+  .page-scroll-item,
+  .page-scroll-reveal-extra-slow .page-scroll-item {
+    filter: none;
+    will-change: opacity, transform;
+  }
+
+  .page-scroll-from-left,
+  .page-scroll-from-right,
+  .page-scroll-reveal-extra-slow .page-scroll-from-left,
+  .page-scroll-reveal-extra-slow .page-scroll-from-right {
+    transform: translate3d(0, 18px, 0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
