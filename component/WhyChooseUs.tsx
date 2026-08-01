@@ -3,23 +3,28 @@ import Image from "next/image"
 const CANDIDATE_SIGNS = [
   {
     title: "Have a receding hairline or advanced pattern baldness.",
-    image: "https://res.cloudinary.com/n0ccg2u6/image/upload/bald_i39yp8.png",
+    image: "/images01.png",
+    // image: "https://res.cloudinary.com/n0ccg2u6/image/upload/bald_i39yp8.png",
   },
   {
     title: "Have thinning over the crown with a healthy donor area.",
-    image: "https://res.cloudinary.com/n0ccg2u6/image/upload/hairthinning_urxqij.png",
+    // image: "https://res.cloudinary.com/n0ccg2u6/image/upload/hairthinning_urxqij.png",
+    image: "/Have-thinning.jpeg",
   },
   {
     title: "Have realistic expectations about the outcome.",
-    image: "https://res.cloudinary.com/n0ccg2u6/image/upload/regrow_hx1biq.png",
+    image: "/Have-realistic.png",
+    // image: "https://res.cloudinary.com/n0ccg2u6/image/upload/regrow_hx1biq.png",
   },
   {
     title: "Have stable hair loss.",
-    image: "https://res.cloudinary.com/n0ccg2u6/image/upload/loss_nrv9dx.png",
+    image: "/hair-los.webp",
+    // image: "https://res.cloudinary.com/n0ccg2u6/image/upload/loss_nrv9dx.png",
   },
   {
     title: "Want a permanent, natural-looking solution.",
-    image: "https://res.cloudinary.com/n0ccg2u6/image/upload/hair-trinity_yud9gy.jpg",
+    image: "/images05.png",
+    // image: "https://res.cloudinary.com/n0ccg2u6/image/upload/hair-trinity_yud9gy.jpg",
   },
   {
     title: "Have already explored or completed medical hair loss treatments.",
@@ -104,14 +109,13 @@ export default function WhyChooseUs() {
         <div className="mx-auto mt-2 max-w-3xl">
           <h2 className="text-3xl font-bold leading-tight tracking-tight text-[#231f20] sm:text-4xl lg:text-[2.15rem]">
             Who Is a{" "}
-            <span className="relative inline-block px-1">
-              <span aria-hidden className="absolute inset-x-0 bottom-0.5 h-3 -rotate-1 bg-[#f52227]" />
-              <span className="relative">Good Candidate</span>
+            <span className="relative inline-block font-black italic text-[#f52227]">
+              Good Candidate
+              <span aria-hidden className="absolute -bottom-1 left-0 h-0.5 w-full origin-left -rotate-1 bg-[#f52227]" />
             </span>{" "}
             for a{" "}
-            <span className="relative inline-block px-1">
-              <span aria-hidden className="absolute inset-x-0 bottom-0.5 h-3 rotate-1 bg-[#f52227]" />
-              <span className="relative">Hair Transplant?</span>
+            <span className="inline-flex -rotate-1 items-center rounded-full border border-[#f52227] bg-[#f52227]/10 px-3 py-0.5 text-[0.82em] text-[#231f20] shadow-[0_0_0_3px_rgba(245,34,39,0.08)]">
+              Hair Transplant?
             </span>
           </h2>
         </div>

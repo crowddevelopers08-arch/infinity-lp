@@ -110,11 +110,11 @@ export default function Header() {
 
         <div className="flex flex-none items-center gap-2 sm:gap-3">
           <a
-            href="tel:+918608551555"
+            href="tel:+919892811033"
             onClick={() => track("call_click", { branch: "Reshape Clinic" })}
             className="hidden text-[0.85rem] font-semibold text-[#231f20] transition-colors hover:text-[#f52227] sm:inline-block"
           >
-            +91 86085 51555
+            +91 9892811033
           </a>
           <a
             href="#book"

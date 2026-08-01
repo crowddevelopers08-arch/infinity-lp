@@ -84,9 +84,9 @@ const WorkProcessSection = () => {
           </div>
           <h2 className="mt-2 text-3xl font-bold leading-tight tracking-tight text-[#231f20] sm:text-4xl lg:text-[2.15rem]">
             Technology Supports{" "}
-            <span className="relative inline-block px-1">
-              <span aria-hidden className="absolute inset-x-0 bottom-0.5 h-3 -rotate-1 bg-[#f52227]" />
-              <span className="relative text-black">Expertise</span>
+            <span className="relative inline-block font-black italic text-[#f52227]">
+              Expertise
+              <span aria-hidden className="absolute -bottom-1 left-0 h-0.5 w-full origin-left -rotate-1 bg-[#f52227]" />
             </span>
             . It Doesn&apos;t Replace It.
           </h2>

@@ -91,14 +91,13 @@ export default function TrustFirst() {
 
             <h2 className="mt-2 max-w-3xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-[2.15rem]">
               We Don&apos;t Recommend{" "}
-              <span className="relative inline-block px-1">
-                <span aria-hidden className="absolute inset-x-0 bottom-0.5 h-3 -rotate-1 bg-[#f52227]" />
-                <span className="relative">Hair Transplants</span>
+              <span className="relative inline-block font-black italic text-[#f52227]">
+                Hair Transplants
+                <span aria-hidden className="absolute -bottom-1 left-0 h-0.5 w-full origin-left -rotate-1 bg-[#f52227]" />
               </span>{" "}
               to{" "}
-              <span className="relative inline-block px-1">
-                <span aria-hidden className="absolute inset-x-0 bottom-0.5 h-3 rotate-1 bg-[#f52227]" />
-                <span className="relative">Everyone.</span>
+              <span className="inline-flex -rotate-1 items-center rounded-full border border-[#f52227] bg-[#f52227]/10 px-3 py-0.5 text-[0.82em] text-[#231f20] shadow-[0_0_0_3px_rgba(245,34,39,0.08)]">
+                Everyone.
               </span>
             </h2>
           </div>

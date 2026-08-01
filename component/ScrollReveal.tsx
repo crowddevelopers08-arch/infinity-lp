@@ -18,8 +18,8 @@ export default function ScrollReveal({ children, extraSlow = false }: { children
     revealItems.forEach((item, index) => {
       item.classList.add("page-scroll-item")
       item.classList.add(index % 2 === 0 ? "page-scroll-from-left" : "page-scroll-from-right")
-      const delayStep = extraSlow ? 650 : 240
-      const maximumDelay = extraSlow ? 11050 : 4080
+      const delayStep = extraSlow ? 180 : 120
+      const maximumDelay = extraSlow ? 3060 : 2040
       item.style.setProperty("--page-reveal-delay", `${Math.min(index * delayStep, maximumDelay)}ms`)
     })
 

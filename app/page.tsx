@@ -12,6 +12,7 @@ import FinalCta from "@/component/FinalCta";
 import Footer from "@/component/Footer";
 import ScrollReveal from "@/component/ScrollReveal";
 import ConsultationModal from "@/component/ConsultationModal";
+import BeforeAfter from "@/component/BeforeAfter";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
 <ScrollReveal><BeautyLab /></ScrollReveal>
 <ScrollReveal><WorkProcessSection /></ScrollReveal>
 <ScrollReveal><ProcessInfographic /></ScrollReveal>
+<ScrollReveal><BeforeAfter /></ScrollReveal>
 <ScrollReveal><FaqGrid /></ScrollReveal>
 <ScrollReveal><FinalCta /></ScrollReveal>
 <ScrollReveal><Footer /></ScrollReveal>

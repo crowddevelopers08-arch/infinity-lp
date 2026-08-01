@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { LuChevronRight, LuHeartPulse } from "react-icons/lu"
+import { LuChevronRight, LuHeartPulse, LuMapPin, LuMessageCircle, LuPhone } from "react-icons/lu"
 
 const QUICK_LINKS = [
   { label: "About the Clinic", href: "#why" },
@@ -7,14 +7,6 @@ const QUICK_LINKS = [
   { label: "Our Process", href: "#process" },
   { label: "Hair Analysis", href: "#hair-analysis" },
   { label: "FAQs", href: "#faq" },
-]
-
-const TREATMENTS = [
-  "Medical Hair Management",
-  "Advanced Hair Regrowth",
-  "FUE Hair Transplant",
-  "Hairline Planning",
-  "Post-Procedure Care",
 ]
 
 const GALLERY_IMAGES = [
@@ -67,13 +59,37 @@ export default function Footer() {
           </nav>
 
           <div>
-            <h2 className="text-sm font-bold uppercase tracking-[0.16em] text-white">Treatments</h2>
-            <ul className="mt-5 space-y-3">
-              {TREATMENTS.map((treatment) => (
-                <li key={treatment} className="text-sm leading-relaxed text-white/60">
-                  {treatment}
-                </li>
-              ))}
+            <h2 className="text-sm font-bold uppercase tracking-[0.16em] text-white">Contact</h2>
+            <ul className="mt-5 space-y-4 text-sm leading-relaxed text-white/60">
+              <li className="flex items-start gap-3">
+                <LuPhone className="mt-0.5 size-4 shrink-0 text-[#f52227]" />
+                <div>
+                  <span className="block text-xs font-bold uppercase tracking-wider text-white/80">Phone</span>
+                  <a href="tel:+919892811033" className="transition-colors hover:text-white">+91 98928 11033</a>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <LuMessageCircle className="mt-0.5 size-4 shrink-0 text-[#f52227]" />
+                <div>
+                  <span className="block text-xs font-bold uppercase tracking-wider text-white/80">WhatsApp</span>
+                  <a
+                    href="https://wa.me/919892811033"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="transition-colors hover:text-white"
+                  >
+                    +91 98928 11033
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <LuMapPin className="mt-0.5 size-4 shrink-0 text-[#f52227]" />
+                <address className="not-italic">
+                  <span className="block text-xs font-bold uppercase tracking-wider text-white/80">Clinic Address</span>
+                  Shri Ramkrishna Netralaya, Infinity Aesthetics Clinic, Shop No. 5, 1st Floor, Dosti Imperia,
+                  beside Ghodbunder Service Road, opposite R-Mall, Manpada, Thane West, Maharashtra 400607
+                </address>
+              </li>
             </ul>
           </div>
 

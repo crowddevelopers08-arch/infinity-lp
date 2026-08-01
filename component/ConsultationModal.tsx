@@ -1,6 +1,8 @@
 "use client"
 
 import { FormEvent, useEffect, useId, useRef, useState } from "react"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { LuCheck, LuPhone, LuSparkles, LuUserRound, LuX } from "react-icons/lu"
 
 export default function ConsultationModal() {
@@ -10,6 +12,7 @@ export default function ConsultationModal() {
   const [submitError, setSubmitError] = useState("")
   const nameInputRef = useRef<HTMLInputElement>(null)
   const titleId = useId()
+  const router = useRouter()
 
   useEffect(() => {
     const openFromTrigger = (event: MouseEvent) => {
@@ -75,6 +78,8 @@ export default function ConsultationModal() {
 
       form.reset()
       setSubmitted(true)
+      setIsOpen(false)
+      router.push("/thank-you")
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : "Unable to submit your request. Please try again.")
     } finally {
@@ -181,6 +186,18 @@ export default function ConsultationModal() {
                     {submitError}
                   </p>
                 )}
+
+                <p className="text-center text-xs leading-relaxed text-[#62595c]">
+                  By submitting, you agree to our{" "}
+                  <Link
+                    href="/privacy-policy"
+                    onClick={() => setIsOpen(false)}
+                    className="font-bold text-[#f52227] underline underline-offset-2"
+                  >
+                    Privacy Policy
+                  </Link>
+                  .
+                </p>
 
                 <button
                   type="submit"

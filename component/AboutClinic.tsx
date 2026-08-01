@@ -38,7 +38,7 @@ export default function AboutClinic() {
       id="why"
       className="overflow-hidden bg-[#1c1c1f] font-[family-name:var(--font-merriweather)] text-white"
     >
-      <div className="mx-auto grid max-w-[1180px] items-center px-5 py-12 sm:px-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-8 lg:py-8">
+      <div className="mx-auto grid max-w-[1180px] items-center px-5 py-12 sm:px-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-12 lg:py-8">
         <div className="relative order-2 mx-auto my-12 w-full max-w-[580px] lg:order-none lg:my-0">
           <div className="absolute -bottom-3 -left-3 h-full w-full rounded-[50%] border-[7px] border-[#f52227]" />
 
@@ -68,7 +68,7 @@ export default function AboutClinic() {
                 letterSpacing="3"
                 style={{ fontFamily: "var(--font-merriweather), Merriweather, Georgia, serif" }}
               >
-                <textPath href="#experience-ring">YEARS OF GREAT EXPERIENCE • </textPath>
+                <textPath href="#experience-ring">YEARS EXPERIENCE  •  BOOK CONSULT • </textPath>
               </text>
             </svg>
             <span className="grid size-14 place-items-center rounded-full bg-[#f52227] text-base font-bold leading-none text-white sm:text-lg">
@@ -113,14 +113,13 @@ export default function AboutClinic() {
           <div className="order-1 mt-2 max-w-2xl">
             <h2 className="text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-[2.15rem]">
               Every{" "}
-              <span className="relative inline-block px-1">
-                <span aria-hidden className="absolute inset-x-0 bottom-0.5 h-3 -rotate-1 bg-[#f52227]" />
-                <span className="relative">Hair Loss Journey</span>
+              <span className="relative inline-block font-black italic text-[#ff5b5f]">
+                Hair Loss Journey
+                <span aria-hidden className="absolute -bottom-1 left-0 h-0.5 w-full origin-left -rotate-1" />
               </span>{" "}
-              Is Different. Your{" "}
-              <span className="relative inline-block px-1">
-                <span aria-hidden className="absolute inset-x-0 bottom-0.5 h-3 rotate-1 bg-[#f52227]" />
-                <span className="relative">Treatment</span>
+              Is Different. {" "}
+              <span className="inline-flex -rotate-1 items-center rounded-full border border-[#f52227] bg-[#f52227]/10 px-3 py-0.5 text-[0.82em] text-white shadow-[0_0_0_3px_rgba(245,34,39,0.08)]">
+                Your Treatment
               </span>
               {" "}Should Be Too.
             </h2>

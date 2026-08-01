@@ -1,11 +1,8 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Merriweather, Inter } from "next/font/google"
+import { Inter, Merriweather } from "next/font/google"
 import "./globals.css"
 
-// Merriweather is loaded and self-hosted via next/font so it doesn't depend on a
-// runtime CSS @import (which Tailwind v4 / Lightning CSS can strip at build time).
-// The family is exposed as the CSS variable --font-merriweather, consumed in globals.css.
 const merriweather = Merriweather({
   subsets: ["latin"],
   weight: ["300", "400", "700", "900"],
@@ -14,7 +11,6 @@ const merriweather = Merriweather({
   display: "swap",
 })
 
-// Inter is used for the hero headline (clean bold sans-serif) via --font-inter.
 const inter = Inter({
   subsets: ["latin"],
   weight: ["500", "600", "700", "800"],
@@ -23,37 +19,80 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "thereshape — Advanced Hair Trinity Program",
+  title: {
+    default: "Hair Transplant & Hair Restoration | Infinity Aesthetics Clinic",
+    template: "%s | Infinity Aesthetics Clinic",
+  },
   description:
-    "At thereshape, our Advanced Hair Trinity Program combines medical science, modern restoration technology and personalized care to reduce hair fall, improve density and restore healthier, stronger hair.",
-  generator: "Nextjs15",
+    "Doctor-led hair loss diagnosis, personalised FUE hair transplant planning, advanced hair regrowth treatments, and long-term restoration care.",
+  keywords: [
+    "Infinity Aesthetics Clinic",
+    "Dr Narendra Nikumbh",
+    "hair transplant",
+    "FUE hair transplant",
+    "Sapphire FUE",
+    "Bio FUE",
+    "hair restoration",
+    "hair loss treatment",
+    "hair regrowth treatment",
+    "receding hairline treatment",
+    "hair thinning treatment",
+    "natural hairline design",
+    "donor area assessment",
+    "hair transplant consultation",
+    "dermatologist hair specialist",
+  ],
+  applicationName: "Infinity Aesthetics Clinic",
+  authors: [{ name: "Infinity Aesthetics Clinic" }],
+  creator: "Infinity Aesthetics Clinic",
+  publisher: "Infinity Aesthetics Clinic",
+  category: "Hair Restoration Clinic",
+  generator: "Next.js",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: "Infinity Aesthetics Clinic",
+    title: "Hair Transplant & Hair Restoration | Infinity Aesthetics Clinic",
+    description:
+      "Start with an accurate hair loss diagnosis and receive personalised, doctor-led guidance for hair preservation, regrowth, or FUE hair transplantation.",
+    images: [
+      {
+        url: "/final-cta-consultation.png",
+        width: 1792,
+        height: 896,
+        alt: "Doctor-led hair restoration consultation at Infinity Aesthetics Clinic",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hair Transplant & Hair Restoration | Infinity Aesthetics Clinic",
+    description:
+      "Personalised hair loss diagnosis, advanced FUE techniques, natural hairline planning, and long-term restoration care.",
+    images: ["/final-cta-consultation.png"],
+  },
   icons: {
-    icon: [
-      { url: "https://res.cloudinary.com/n0ccg2u6/image/upload/favlogo_kiluez.png", sizes: "16x16", type: "image/png" },
-      { url: "https://res.cloudinary.com/n0ccg2u6/image/upload/favlogo_kiluez.png", sizes: "32x32", type: "image/png" },
-      { url: "https://res.cloudinary.com/n0ccg2u6/image/upload/favlogo_kiluez.png", sizes: "48x48", type: "image/png" },
-      { url: "https://res.cloudinary.com/n0ccg2u6/image/upload/favlogo_kiluez.png", sizes: "192x192", type: "image/png" },
-      { url: "https://res.cloudinary.com/n0ccg2u6/image/upload/favlogo_kiluez.png", sizes: "512x512", type: "image/png" },
-    ],
-    apple: [
-      { url: "https://res.cloudinary.com/n0ccg2u6/image/upload/favlogo_kiluez.png", sizes: "180x180", type: "image/png" },
-    ],
-    shortcut: "https://res.cloudinary.com/n0ccg2u6/image/upload/favlogo_kiluez.png",
-  }
+    icon: [{ url: "/logo.png", type: "image/png" }],
+    apple: [{ url: "/logo.png", type: "image/png" }],
+    shortcut: "/logo.png",
+  },
 }
 
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${merriweather.variable} ${inter.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${merriweather.variable} ${inter.variable} h-full antialiased`}>
+      <body className="flex min-h-full flex-col">{children}</body>
     </html>
-  );
+  )
 }

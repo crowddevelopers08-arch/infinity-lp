@@ -46,7 +46,8 @@ const conditions: Condition[] = [
     description:
       "Your treatment is planned and performed by Dr Narendra Nikumbh, a board-certified dermatologist with 12+ years of extensive expertise in hair restoration.",
     list: [],
-    image: "https://res.cloudinary.com/n0ccg2u6/image/upload/regrow_hx1biq.png",
+    // image: "https://res.cloudinary.com/n0ccg2u6/image/upload/regrow_hx1biq.png",
+    image: "/dermologies.avif",
   },
   {
     name: "Doctor-Led Hair Transplants",
@@ -54,7 +55,8 @@ const conditions: Condition[] = [
     description:
       "Every hair transplant procedure is personally performed by the doctor, not delegated to technicians.",
     list: ["Every graft.", "Every angle.", "Every decision."],
-    image: "https://res.cloudinary.com/n0ccg2u6/image/upload/loss_nrv9dx.png",
+    // image: "https://res.cloudinary.com/n0ccg2u6/image/upload/loss_nrv9dx.png",
+    image: "/Hair-Transplants.avif",
   },
   {
     name: "Honest, Personalised Consultations",
@@ -62,7 +64,8 @@ const conditions: Condition[] = [
     description:
       "We believe patients deserve clear answers, not sales pitches. If you're not the right candidate for a hair transplant, we'll tell you honestly and recommend alternatives that are better suited to your condition.",
     list: [],
-    image: "https://res.cloudinary.com/n0ccg2u6/image/upload/bald_i39yp8.png",
+    // image: "https://res.cloudinary.com/n0ccg2u6/image/upload/bald_i39yp8.png",
+    image: "/consultation.avif",
   },
   {
     name: "Natural Hairline Design",
@@ -84,7 +87,8 @@ const conditions: Condition[] = [
       "BIO FUE Technique",
       "Standard FUE Technique",
     ],
-    image: "https://res.cloudinary.com/n0ccg2u6/image/upload/scalp_dvynfh.png",
+    // image: "https://res.cloudinary.com/n0ccg2u6/image/upload/scalp_dvynfh.png",
+    image: "/Restoration.avif",
   },
   {
     name: "Is Hair Loss Starting to Affect Your Confidence?",
@@ -100,7 +104,8 @@ const conditions: Condition[] = [
       "Losing confidence during interviews, presentations, or social gatherings.",
       "Constantly checking your hairline in the mirror.",
     ],
-    image: "https://res.cloudinary.com/n0ccg2u6/image/upload/hair-trinity_yud9gy.jpg",
+    image: "/hair-loss.jpg",
+    // image: "https://res.cloudinary.com/n0ccg2u6/image/upload/hair-trinity_yud9gy.jpg",
     featured: true,
   },
 ]
@@ -165,11 +170,11 @@ export default function Conditions() {
 
           <h2 className="mt-2 text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-[2.15rem]">
             Why Patients Choose{" "}
-            <span className="relative inline-block px-1">
-              <span aria-hidden className="absolute inset-x-0 bottom-0.5 h-3 -rotate-1 bg-[#f52227]" />
-              <span className="relative">Infinity Aesthetics</span>
+            <span className="relative inline-block font-black italic text-[#f52227]">
+              Infinity Aesthetics
+              <span aria-hidden className="absolute -bottom-1 left-0 h-0.5 w-full origin-left -rotate-1 bg-[#f52227]" />
             </span>{" "}
-            Clinic
+            <span className="inline-flex -rotate-1 items-center rounded-full border border-[#f52227] bg-[#f52227]/10 px-3 py-0.5 text-[0.82em] text-[#231f20] shadow-[0_0_0_3px_rgba(245,34,39,0.08)]">Clinic</span>
           </h2>
           <p className="mx-auto mt-4 text-sm leading-relaxed text-[#62595c]">
             A Hair Transplant Is More Than a Procedure. It&apos;s a Medical Decision.

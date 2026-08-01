@@ -119,11 +119,11 @@ export default function BeautyLab() {
 
           <h2 className="mt-2 text-3xl font-bold leading-tight tracking-tight text-[#231f20] sm:text-4xl lg:text-[2.15rem]">
             Our{" "}
-            <span className="relative inline-block px-1">
-              <span aria-hidden className="absolute inset-x-0 bottom-0.5 h-3 -rotate-1 bg-[#f52227]" />
-              <span className="relative text-black">Hair Transplant</span>
+            <span className="relative inline-block font-black italic text-[#f52227]">
+              Hair Transplant
+              <span aria-hidden className="absolute -bottom-1 left-0 h-0.5 w-full origin-left -rotate-1 bg-[#f52227]" />
             </span>{" "}
-            Process
+            <span className="inline-flex -rotate-1 items-center rounded-full border border-[#f52227] bg-[#f52227]/10 px-3 py-0.5 text-[0.82em] text-[#231f20] shadow-[0_0_0_3px_rgba(245,34,39,0.08)]">Process</span>
           </h2>
           <p className="mx-auto mt-3 max-sm:mt-1 max-w-2xl text-sm leading-relaxed text-[#62595c]">
             Hair restoration doesn&apos;t end after the procedure.

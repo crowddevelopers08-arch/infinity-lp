@@ -65,9 +65,9 @@ export default function FaqGrid() {
           </div>
           <h2 id="faq-title" className="mt-2 text-3xl font-bold leading-tight tracking-tight text-[#231f20] sm:text-4xl lg:text-[2.15rem]">
             Frequently{" "}
-            <span className="relative inline-block px-1">
-              <span aria-hidden className="absolute inset-x-0 bottom-0.5 h-3 -rotate-1 bg-[#f52227]" />
-              <span className="relative text-black">Asked Questions</span>
+            <span className="relative inline-block font-black italic text-[#f52227]">
+              Asked Questions
+              <span aria-hidden className="absolute -bottom-1 left-0 h-0.5 w-full origin-left -rotate-1 bg-[#f52227]" />
             </span>
           </h2>
         </header>

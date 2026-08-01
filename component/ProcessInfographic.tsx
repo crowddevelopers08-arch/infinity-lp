@@ -80,9 +80,9 @@ export default function ProcessInfographic() {
           className="mt-2 text-3xl font-bold leading-tight tracking-tight text-[#231f20] sm:text-4xl lg:text-[2.15rem]"
         >
           Hair Restoration Is About{" "}
-          <span className="relative inline-block px-1">
-            <span aria-hidden className="absolute inset-x-0 bottom-0.5 h-3 -rotate-1 bg-[#f52227]" />
-            <span className="relative text-black">More Than Hair</span>
+          <span className="relative inline-block font-black italic text-[#f52227]">
+            More Than Hair
+            <span aria-hidden className="absolute -bottom-1 left-0 h-0.5 w-full origin-left -rotate-1 bg-[#f52227]" />
           </span>
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-[#62595c]">
@@ -115,8 +115,8 @@ export default function ProcessInfographic() {
         ))}
       </div>
 
-      <div className="hidden overflow-x-auto pb-2 [scrollbar-width:thin] sm:mt-5 sm:block">
-        <div className="relative mx-0 aspect-[1000/500] min-w-[720px] max-w-[1180px] sm:mx-auto sm:aspect-[1000/420] lg:aspect-[1000/450]">
+      <div className="hidden overflow-x-auto px-6 pb-2 [scrollbar-width:thin] sm:mt-4 sm:block lg:px-10">
+        <div className="relative mx-0 aspect-[1000/400] min-w-[700px] max-w-[1100px] sm:mx-auto lg:aspect-[1000/360]">
           <svg
             aria-hidden="true"
             viewBox="0 0 1000 520"
@@ -133,10 +133,20 @@ export default function ProcessInfographic() {
               </linearGradient>
             </defs>
             <path
-              d="M55 235 C55 322 114 352 175 333 C249 310 245 125 385 114 C500 105 465 331 590 333 C708 335 670 113 795 114 C888 115 932 151 945 235"
+              d="M175 333 C249 310 245 125 385 114 C500 105 465 331 590 333 C708 335 670 113 795 114"
               stroke="url(#process-wave)"
               strokeWidth="14"
               strokeLinecap="butt"
+              pathLength="1"
+              className="process-wave-draw"
+            />
+            <path
+              d="M175 333 C249 310 245 125 385 114 C500 105 465 331 590 333 C708 335 670 113 795 114"
+              stroke="rgba(255,255,255,0.78)"
+              strokeWidth="3"
+              strokeLinecap="round"
+              pathLength="1"
+              className="process-wave-glint"
             />
           </svg>
 
@@ -180,7 +190,7 @@ export default function ProcessInfographic() {
         </div>
       </div>
 
-      <p className="relative z-10 mx-auto mt-0 max-w-3xl px-5 text-center text-sm font-semibold leading-relaxed text-[#231f20] sm:-mt-16 lg:-mt-12">
+      <p className="relative z-10 mx-auto mt-0 max-w-3xl px-5 text-center text-sm font-semibold leading-relaxed text-[#231f20] sm:-mt-16 lg:-mt-5">
         Because confidence returns long before the compliments do, that&apos;s what successful hair restoration
         truly means.
       </p>

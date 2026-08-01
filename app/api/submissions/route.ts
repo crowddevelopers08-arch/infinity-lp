@@ -68,13 +68,7 @@ function appendLocalRow(row: string[]) {
 }
 
 function getSheetWebhookUrl() {
-  return (
-    process.env.GOOGLE_APPS_SCRIPT_URL ||
-    process.env.GOOGLE_SHEETS_WEBHOOK_URL ||
-    process.env.NEXT_PUBLIC_GAS_URL ||
-    process.env.YOUR_GOOGLE_SHEET_ID ||
-    ''
-  ).trim();
+  return (process.env.GOOGLE_APPS_SCRIPT_URL || '').trim();
 }
 
 async function pushToSheet(body: SubmissionBody, timestamp: string, telecrmStatus: string) {
@@ -103,6 +97,7 @@ async function pushToSheet(body: SubmissionBody, timestamp: string, telecrmStatu
       pageUrl: body.pageUrl,
       url: body.pageUrl,
       telecrm: telecrmStatus,
+      webhookSecret: process.env.GOOGLE_APPS_SCRIPT_SECRET || '',
       headers: HEADERS,
       row,
     }),

@@ -19,7 +19,15 @@ export default function FinalCta() {
         <div className="max-w-3xl">
 
           <h2 id="final-cta-title" className="mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-[2.15rem]">
-            Don&apos;t Decide on a Hair Transplant Until You Know You Actually Need One.
+            Don&apos;t Decide on a{" "}
+            <span className="relative inline-block font-black italic text-[#ff5b5f]">
+              Hair Transplant
+              <span aria-hidden className="absolute -bottom-1 left-0 h-0.5 w-full origin-left -rotate-1 bg-[#f52227]" />
+            </span>{" "}
+            Until You Know You{" "}
+            <span className="inline-flex -rotate-1 items-center rounded-full border border-[#f52227] bg-[#f52227]/10 px-3 py-0.5 text-[0.82em] text-white shadow-[0_0_0_3px_rgba(245,34,39,0.12)]">
+              Actually Need One.
+            </span>
           </h2>
 
           <div className="mt-6 border-l-4 border-[#f52227] pl-5 sm:pl-6">
