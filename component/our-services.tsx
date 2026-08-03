@@ -13,7 +13,7 @@ const WorkProcessSection = () => {
     {
       number: '2',
       title: 'Natural Hairline Design',
-      icon: '/proc-icon-2.png',
+      icon: '/proc-icon-s2.png',
       isImage: true
     },
     {
@@ -114,7 +114,7 @@ const WorkProcessSection = () => {
                       alt={process.title}
                       width={48}
                       height={48}
-                      className="w-12 h-12 object-contain"
+                      className="w-16 h-16 object-contain"
                       style={{ filter: brandRedFilter }}
                     />
                   ) : (

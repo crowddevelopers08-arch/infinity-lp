@@ -524,6 +524,23 @@ body {
   }
 }
 
+@keyframes condition-chip-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+.condition-chip-marquee {
+  animation: condition-chip-scroll 20s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .condition-chip-marquee {
+    animation: none;
+    will-change: auto;
+  }
+}
+
 /* Process wave draws left-to-right and carries a brief inner highlight. */
 .process-wave-draw {
   stroke-dasharray: 1;
@@ -573,6 +590,16 @@ body {
 @keyframes hero-slow-enter-right {
   from { opacity: 0; transform: translate3d(32px, 18px, 0); }
   to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes hero-image-zoom-in {
+  from { transform: scale(1.1); }
+  to { transform: scale(1); }
+}
+
+.hero-image-zoom {
+  animation: hero-image-zoom-in 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+  will-change: transform;
 }
 
 .hero-slow-item {

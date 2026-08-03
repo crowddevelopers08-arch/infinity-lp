@@ -21,7 +21,7 @@ const FEATURES = [
         carefully designed to suit your facial features while considering how your hair may change over the years.
       </>
     ),
-    icon: "/our-icon-2.png",
+    icon: "/our-icons-2.png",
   },
   {
     title: "Step 3: Precision Hair Transplant",
@@ -41,7 +41,7 @@ const FEATURES = [
         <strong className="font-semibold text-[#342e30]">long-term hair growth</strong>.
       </>
     ),
-    icon: "/our-icon-4.png",
+    icon: "/our-icons-4.png",
     accent: true,
   },
 ]

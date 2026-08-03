@@ -115,7 +115,7 @@ export default function ProcessInfographic() {
         ))}
       </div>
 
-      <div className="hidden overflow-x-auto px-6 pb-2 [scrollbar-width:thin] sm:mt-4 sm:block lg:px-10">
+      <div className="hidden overflow-x-auto px-6 pb-2 pt-12 [scrollbar-width:thin] sm:mt-4 sm:block lg:px-10">
         <div className="relative mx-0 aspect-[1000/400] min-w-[700px] max-w-[1100px] sm:mx-auto lg:aspect-[1000/360]">
           <svg
             aria-hidden="true"
@@ -160,7 +160,7 @@ export default function ProcessInfographic() {
                 style={{ left: step.left, top: step.top }}
               >
                 <div
-                  className={`absolute left-1/2 w-48 -translate-x-1/2 text-center ${
+                  className={`absolute left-1/2 w-64 -translate-x-1/2 text-center ${
                     copyIsTop ? "bottom-[5rem]" : "top-[5rem]"
                   }`}
                 >
@@ -190,7 +190,7 @@ export default function ProcessInfographic() {
         </div>
       </div>
 
-      <p className="relative z-10 mx-auto mt-0 max-w-3xl px-5 text-center text-sm font-semibold leading-relaxed text-[#231f20] sm:-mt-16 lg:-mt-5">
+      <p className="relative z-10 mx-auto mt-4 max-w-3xl px-5 text-center text-sm font-semibold leading-relaxed text-[#231f20] sm:-mt-16 lg:-mt-5">
         Because confidence returns long before the compliments do, that&apos;s what successful hair restoration
         truly means.
       </p>

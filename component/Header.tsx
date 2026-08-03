@@ -17,16 +17,8 @@ const ANNOUNCEMENTS = ["Doctor-Led Hair Care", "3-in-1 Hair Therapy", "Personali
 const ANNOUNCEMENTS_SET = Array.from({ length: 4 }, () => ANNOUNCEMENTS).flat()
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false)
   const [active, setActive] = useState("")
   const [mobileOpen, setMobileOpen] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
-    onScroll()
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
 
   useEffect(() => {
     const sections = NAV.map((item) => document.getElementById(item.id)).filter(Boolean) as HTMLElement[]
@@ -46,26 +38,18 @@ export default function Header() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 px-3 sm:px-5">
-      <div
-        className={`relative mb-2 overflow-hidden transition-all duration-300 ${
-          scrolled
-            ? "mx-auto w-full max-w-[1180px] rounded-full border border-[#eadfe0] bg-white/90 shadow-[0_12px_34px_-16px_rgba(35,31,32,0.35)] backdrop-blur-[12px]"
-            : "-mx-3 w-[calc(100%+1.5rem)] border border-transparent bg-[#231f20] backdrop-blur-[8px] sm:-mx-5 sm:w-[calc(100%+2.5rem)]"
-        }`}
-      >
+    <header className="relative z-50 px-3 sm:px-5">
+      <div className="relative -mx-3 mb-2 w-[calc(100%+1.5rem)] overflow-hidden border border-transparent bg-[#231f20] sm:-mx-5 sm:w-[calc(100%+2.5rem)]">
         <div className="overflow-hidden py-1.5 [mask-image:linear-gradient(to_right,transparent,#000_8%,#000_92%,transparent)]">
           <div className="header-marquee gap-8">
             {[...ANNOUNCEMENTS_SET, ...ANNOUNCEMENTS_SET].map((announcement, index) => (
               <span
                 key={index}
                 aria-hidden={index >= ANNOUNCEMENTS_SET.length}
-                className={`flex flex-none items-center gap-8 whitespace-nowrap text-[0.72rem] font-semibold uppercase tracking-wide transition-colors duration-300 ${
-                  scrolled ? "text-[#231f20]" : "text-white/90"
-                }`}
+                className="flex flex-none items-center gap-8 whitespace-nowrap text-[0.72rem] font-semibold uppercase tracking-wide text-white/90"
               >
                 {announcement}
-                <span aria-hidden className={scrolled ? "text-[#f52227]/60" : "text-[#f52227]"}>
+                <span aria-hidden className="text-[#f52227]">
                   •
                 </span>
               </span>
@@ -74,13 +58,7 @@ export default function Header() {
         </div>
       </div>
 
-      <div
-        className={`mx-auto flex h-14 w-full max-w-[1180px] items-center justify-between gap-4 rounded-full pl-4 pr-2 transition-all duration-300 sm:h-16 sm:pl-5 sm:pr-2.5 ${
-          scrolled
-            ? "border border-[#eadfe0] bg-white/90 shadow-[0_12px_34px_-16px_rgba(35,31,32,0.35)] backdrop-blur-[12px]"
-            : "border border-transparent bg-white/70 backdrop-blur-[8px]"
-        }`}
-      >
+      <div className="mx-auto flex h-14 w-full max-w-[1180px] items-center justify-between gap-4 rounded-full border border-transparent bg-white/70 pl-4 pr-2 sm:h-16 sm:pl-5 sm:pr-2.5">
         <a href="#top" aria-label="Go to top" className="flex flex-none items-center">
           <Image
             src="/logo.png"

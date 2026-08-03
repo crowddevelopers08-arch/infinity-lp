@@ -19,14 +19,15 @@ export default function Home() {
 <>
 <Header />
 <FaqShowcase />
+<ScrollReveal><BeforeAfter /></ScrollReveal>
 <ScrollReveal><AboutClinic /></ScrollReveal>
-<ScrollReveal><TrustFirst /></ScrollReveal>
+{/* <ScrollReveal><TrustFirst /></ScrollReveal> */}
 <ScrollReveal><Conditions /></ScrollReveal>
 <ScrollReveal><WhyChooseUs /></ScrollReveal>
 <ScrollReveal><BeautyLab /></ScrollReveal>
 <ScrollReveal><WorkProcessSection /></ScrollReveal>
 <ScrollReveal><ProcessInfographic /></ScrollReveal>
-<ScrollReveal><BeforeAfter /></ScrollReveal>
+
 <ScrollReveal><FaqGrid /></ScrollReveal>
 <ScrollReveal><FinalCta /></ScrollReveal>
 <ScrollReveal><Footer /></ScrollReveal>

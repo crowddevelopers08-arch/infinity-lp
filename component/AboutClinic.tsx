@@ -17,8 +17,8 @@ const FEATURES = [
 
 function FeatureIcon() {
   return (
-    <span className="grid size-8 shrink-0 place-items-center rounded-full bg-[#f52227]/15 text-[#f52227]">
-      <svg aria-hidden="true" viewBox="0 0 24 24" className="size-4" fill="none">
+    <span className="grid size-12 shrink-0 place-items-center rounded-full bg-white text-[#f52227] shadow-sm">
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="size-6" fill="none">
         <circle cx="12" cy="12" r="7.25" stroke="currentColor" strokeWidth="1.5" />
         <path
           d="M8.5 12.25 10.8 14.5l4.9-5.2M12 3.5v2M12 18.5v2M3.5 12h2M18.5 12h2"
@@ -125,13 +125,13 @@ export default function AboutClinic() {
             </h2>
           </div>
 
-          <p className="order-1 mt-3 max-w-xl text-sm font-normal leading-relaxed text-white/65 sm:mt-1">
+          <p className="order-1 mt-3 max-w-xl text-sm font-normal leading-relaxed text-white/65 sm:mt-5">
             Many people believe hair transplantation is the only answer to hair loss. It isn&apos;t.
           </p>
 
-          <div className="order-3 mt-3 space-y-1 sm:space-y-3">
+          <div className="order-3 mt-5 space-y-1 sm:space-y-5">
             {FEATURES.map((feature) => (
-              <div key={feature.title} className="flex items-start gap-2">
+              <div key={feature.title} className="flex items-center gap-4">
                 <FeatureIcon />
                 <div>
                   <h3 className="text-base font-bold leading-snug tracking-tight sm:text-lg">
@@ -156,7 +156,7 @@ export default function AboutClinic() {
 
           <a
             href="#book"
-            className="order-3 mt-4 inline-flex w-fit items-center gap-2 rounded-full border border-white/80 px-7 py-3 text-sm font-bold leading-none text-white transition-colors hover:border-[#f52227] hover:bg-[#f52227] sm:mt-3"
+            className="order-3 mt-4 inline-flex w-fit items-center gap-2 rounded-full border border-white/80 px-7 py-3 text-sm font-bold leading-none text-white transition-colors hover:border-[#f52227] hover:bg-[#f52227] sm:mt-6"
           >
             Contact
             <span aria-hidden className="text-lg leading-none">

@@ -13,6 +13,8 @@ const AUTOPLAY_DELAY = 5500
 export default function BeforeAfter() {
   const [activeIndex, setActiveIndex] = useState(0)
   const touchStartX = useRef<number | null>(null)
+  const carouselRef = useRef<HTMLDivElement>(null)
+  const cardRefs = useRef<Array<HTMLDivElement | null>>([])
 
   const showNext = useCallback(() => {
     setActiveIndex((current) => (current + 1) % RESULTS.length)
@@ -27,11 +29,22 @@ export default function BeforeAfter() {
     return () => window.clearInterval(timer)
   }, [showNext])
 
+  useEffect(() => {
+    const carousel = carouselRef.current
+    const card = cardRefs.current[activeIndex]
+    if (!carousel || !card) return
+
+    carousel.scrollTo({
+      left: card.offsetLeft - carousel.offsetLeft,
+      behavior: "smooth",
+    })
+  }, [activeIndex])
+
   return (
     <section
       id="results"
       aria-labelledby="before-after-heading"
-      className="overflow-hidden bg-[#f8f5f5] py-6 font-[family-name:var(--font-merriweather)] sm:py-8"
+      className="overflow-hidden py-6 font-[family-name:var(--font-merriweather)] sm:py-8"
     >
       <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
         <div className="mx-auto max-w-3xl text-center">
@@ -87,7 +100,7 @@ export default function BeforeAfter() {
         </div>
 
         <div
-          className="relative mx-auto mt-5 max-w-[520px] select-none sm:mt-6"
+          className="relative mx-auto mt-5 max-w-5xl select-none sm:mt-6"
           onTouchStart={(event) => {
             touchStartX.current = event.touches[0]?.clientX ?? null
           }}
@@ -101,53 +114,40 @@ export default function BeforeAfter() {
             touchStartX.current = null
           }}
         >
-          <div className="absolute inset-y-8 -left-[18%] hidden w-[38%] rotate-[-2deg] overflow-hidden rounded-2xl opacity-25 shadow-xl lg:block">
-            <Image
-              src={RESULTS[(activeIndex - 1 + RESULTS.length) % RESULTS.length].src}
-              alt=""
-              fill
-              sizes="360px"
-              className="object-cover"
-            />
-          </div>
-          <div className="absolute inset-y-8 -right-[18%] hidden w-[38%] rotate-[2deg] overflow-hidden rounded-2xl opacity-25 shadow-xl lg:block">
-            <Image
-              src={RESULTS[(activeIndex + 1) % RESULTS.length].src}
-              alt=""
-              fill
-              sizes="360px"
-              className="object-cover"
-            />
-          </div>
-
-          <div className="relative z-10 aspect-[5/4] overflow-hidden rounded-2xl border-4 border-white bg-white shadow-[0_22px_65px_rgba(35,31,32,0.2)] sm:rounded-[28px] sm:border-[7px]">
+          <div
+            ref={carouselRef}
+            className="flex snap-x snap-mandatory gap-4 overflow-hidden scroll-smooth px-1 py-3 sm:gap-5"
+          >
             {RESULTS.map((result, index) => (
-              <Image
+              <div
                 key={result.src}
-                src={result.src}
-                alt={result.alt}
-                fill
-                priority={index === 0}
-              sizes="(max-width: 768px) 94vw, 520px"
+                ref={(element) => {
+                  cardRefs.current[index] = element
+                }}
                 className={
-                  "object-cover transition-[opacity,transform] duration-700 ease-out " +
+                  "relative h-[280px] min-w-0 flex-[0_0_100%] snap-start overflow-hidden rounded-2xl border-4 border-white bg-white  duration-500 sm:h-[300px] sm:basis-[calc(50%-0.625rem)] lg:h-[320px] lg:basis-[calc(33.333%-0.834rem)] " +
                   (index === activeIndex
-                    ? "scale-100 opacity-100"
-                    : "pointer-events-none scale-[1.02] opacity-0")
+                    ? ""
+                    : "scale-100")
                 }
-              />
+              >
+                <Image
+                  src={result.src}
+                  alt={result.alt}
+                  fill
+                  priority={index < 3}
+                  sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 320px"
+                  className="object-cover"
+                />
+              </div>
             ))}
-
-            {/* <span className="absolute left-3 top-3 rounded-full bg-[#231f20]/85 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-white backdrop-blur-sm sm:left-5 sm:top-5 sm:text-xs">
-              Patient Result {activeIndex + 1}
-            </span> */}
           </div>
 
           <button
             type="button"
             onClick={showPrevious}
             aria-label="Show previous result"
-            className="absolute -left-5 top-1/2 z-20 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-white text-2xl text-[#231f20] shadow-lg transition hover:bg-[#f52227] hover:text-white sm:-left-6 sm:size-12"
+            className="absolute -left-3 top-1/2 z-20 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-white text-2xl text-[#231f20] shadow-lg transition hover:bg-[#f52227] hover:text-white sm:-left-8 sm:size-12"
           >
             <span aria-hidden>‹</span>
           </button>
@@ -155,7 +155,7 @@ export default function BeforeAfter() {
             type="button"
             onClick={showNext}
             aria-label="Show next result"
-            className="absolute -right-5 top-1/2 z-20 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-white text-2xl text-[#231f20] shadow-lg transition hover:bg-[#f52227] hover:text-white sm:-right-6 sm:size-12"
+            className="absolute -right-3 top-1/2 z-20 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-white text-2xl text-[#231f20] shadow-lg transition hover:bg-[#f52227] hover:text-white sm:-right-8 sm:size-12"
           >
             <span aria-hidden>›</span>
           </button>
