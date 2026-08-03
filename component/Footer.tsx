@@ -2,11 +2,12 @@ import Image from "next/image"
 import { LuChevronRight, LuHeartPulse, LuMapPin, LuMessageCircle, LuPhone } from "react-icons/lu"
 
 const QUICK_LINKS = [
-  { label: "About the Clinic", href: "#why" },
-  { label: "Hair Conditions", href: "#conditions" },
-  { label: "Our Process", href: "#process" },
-  { label: "Hair Analysis", href: "#hair-analysis" },
-  { label: "FAQs", href: "#faq" },
+  { label: "Process", href: "#process", id: "process" },
+  { label: "Hair Analysis", href: "#hair", id: "hair" },
+  { label: "Conditions", href: "#conditions", id: "conditions" },
+  { label: "Why Us", href: "#why", id: "why" },
+  { label: "Journey", href: "#journey", id: "journey" },
+  { label: "FAQ", href: "#faq", id: "faq" },
 ]
 
 const GALLERY_IMAGES = [

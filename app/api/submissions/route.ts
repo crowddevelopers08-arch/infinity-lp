@@ -105,7 +105,24 @@ async function pushToSheet(body: SubmissionBody, timestamp: string, telecrmStatu
 
   const text = await res.text();
   if (!res.ok) throw new Error(`Google Apps Script failed with ${res.status}: ${text}`);
-  return text;
+
+  let result: { success?: boolean; error?: string };
+  try {
+    result = JSON.parse(text) as { success?: boolean; error?: string };
+  } catch {
+    const isGoogleLogin = /sign in - google accounts|accounts\.google\.com/i.test(text);
+    throw new Error(
+      isGoogleLogin
+        ? 'Google Apps Script requires sign-in. Redeploy the Web App with access set to Anyone.'
+        : 'Google Apps Script returned a non-JSON response.',
+    );
+  }
+
+  if (result.success !== true) {
+    throw new Error(result.error || 'Google Apps Script did not confirm that the row was saved.');
+  }
+
+  return result;
 }
 
 function normalizePhoneForTeleCRM(phone: string) {
@@ -272,6 +289,18 @@ export async function POST(req: NextRequest) {
     } catch (gasErr) {
       excelError = (gasErr as Error).message;
       console.warn('Google Apps Script sync skipped:', excelError);
+    }
+
+    if (excelStatus === 'failed') {
+      return NextResponse.json(
+        {
+          success: false,
+          error: excelError || 'Unable to save the submission to Google Sheets.',
+          excel: excelStatus,
+          telecrm: telecrmResult,
+        },
+        { status: 502 },
+      );
     }
 
     return NextResponse.json({
