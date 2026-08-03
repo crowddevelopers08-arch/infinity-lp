@@ -6,3 +6,6 @@ Timestamp,Source,Name,Phone,Concern,URL,TeleCRM
 "3/8/2026, 12:04:38 pm",Consultation Modal,Rajesh Kumar,7859641230,Hair transplant consultation,http://localhost:3000/,Not configured
 "3/8/2026, 12:07:20 pm",Consultation Modal,Rajesh Kumar,7859641230,Scalp concern,http://localhost:3000/,Not configured
 "3/8/2026, 12:19:51 pm",Consultation Modal,Rajesh Kumar,7859641214,Hair thinning or low density,http://localhost:3000/,Not configured
+"3/8/2026, 6:59:27 pm",generic consult,Rajesh Kumar,7854120369,Patchy hair loss,http://localhost:3000/generic#about-us,Not configured
+"3/8/2026, 7:01:20 pm",generic consult,Rajesh Kumar,7412580360,Hair transplant consultation,http://localhost:3000/generic#appointment,Not configured
+"3/8/2026, 7:02:13 pm",Consultation Modal,Rajesh Kumar,7859641233,Hair transplant consultation,http://localhost:3000/,Not configured

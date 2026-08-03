@@ -84,6 +84,7 @@ async function pushToSheet(body: SubmissionBody, timestamp: string, telecrmStatu
     body.pageUrl,
     telecrmStatus,
   ];
+  const sheetName = body.source.toLowerCase() === 'generic consult' ? 'genericleads' : 'Submissions';
 
   const res = await fetch(url, {
     method: 'POST',
@@ -98,6 +99,7 @@ async function pushToSheet(body: SubmissionBody, timestamp: string, telecrmStatu
       url: body.pageUrl,
       telecrm: telecrmStatus,
       webhookSecret: process.env.GOOGLE_APPS_SCRIPT_SECRET || '',
+      sheetName,
       headers: HEADERS,
       row,
     }),
