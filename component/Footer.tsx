@@ -1,5 +1,8 @@
+"use client"
+
 import Image from "next/image"
-import { LuChevronRight, LuHeartPulse, LuMapPin, LuMessageCircle, LuPhone } from "react-icons/lu"
+import { useEffect, useState } from "react"
+import { LuChevronLeft, LuChevronRight, LuHeartPulse, LuMapPin, LuMessageCircle, LuPhone, LuX } from "react-icons/lu"
 
 const QUICK_LINKS = [
   { label: "Process", href: "#process", id: "process" },
@@ -23,6 +26,22 @@ const GALLERY_IMAGES = [
 ]
 
 export default function Footer() {
+  const [activeImage, setActiveImage] = useState<number | null>(null)
+  const closeGallery = () => setActiveImage(null)
+  const showPrevious = () => setActiveImage((current) => current === null ? current : (current - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length)
+  const showNext = () => setActiveImage((current) => current === null ? current : (current + 1) % GALLERY_IMAGES.length)
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (activeImage === null) return
+      if (event.key === "Escape") setActiveImage(null)
+      if (event.key === "ArrowLeft") setActiveImage((current) => current === null ? current : (current - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length)
+      if (event.key === "ArrowRight") setActiveImage((current) => current === null ? current : (current + 1) % GALLERY_IMAGES.length)
+    }
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [activeImage])
+
   return (
     <footer className="relative overflow-hidden bg-[#171415] font-[family-name:var(--font-merriweather)] text-white">
       <div aria-hidden className="absolute -right-24 top-16 size-96 rounded-full border border-white/5" />
@@ -98,7 +117,10 @@ export default function Footer() {
             <h2 className="text-sm font-bold uppercase tracking-[0.16em] text-white">Gallery</h2>
             <div className="mt-5 grid max-w-[220px] grid-cols-3 gap-1.5">
               {GALLERY_IMAGES.map((src, index) => (
-                <div
+                <button
+                  type="button"
+                  onClick={() => setActiveImage(index)}
+                  aria-label={`Open gallery image ${index + 1}`}
                   key={src}
                   className="group relative aspect-square overflow-hidden rounded-md border border-white/10 bg-white/5"
                 >
@@ -110,7 +132,7 @@ export default function Footer() {
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <span className="absolute inset-0 bg-[#f52227]/0 transition-colors duration-300 group-hover:bg-[#f52227]/20" />
-                </div>
+                </button>
               ))}
             </div>
           </div>
@@ -124,6 +146,29 @@ export default function Footer() {
           <p>Hair restoration guidance should always begin with a qualified medical assessment.</p>
         </div>
       </div>
+
+      {activeImage !== null && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Gallery image ${activeImage + 1}`}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-3 sm:p-8"
+          onClick={closeGallery}
+        >
+          <button type="button" onClick={closeGallery} aria-label="Close gallery" className="absolute right-3 top-3 z-10 rounded-full bg-white/15 p-2.5 text-white transition hover:bg-[#f52227] sm:right-5 sm:top-5 sm:p-3">
+            <LuX className="size-5 sm:size-6" />
+          </button>
+          <button type="button" onClick={(event) => { event.stopPropagation(); showPrevious() }} aria-label="Previous image" className="absolute bottom-5 left-5 rounded-full bg-white/15 p-3 text-white transition hover:bg-[#f52227] sm:bottom-auto sm:left-7 sm:top-1/2 sm:-translate-y-1/2">
+            <LuChevronLeft className="size-6 sm:size-7" />
+          </button>
+          <div className="relative mt-8 h-[68vh] w-full max-w-5xl sm:mt-0 sm:h-[75vh]" onClick={(event) => event.stopPropagation()}>
+            <Image src={GALLERY_IMAGES[activeImage]} alt={`Infinity Aesthetics Clinic gallery ${activeImage + 1}`} fill sizes="(max-width: 1024px) 100vw, 1024px" className="object-contain" priority />
+          </div>
+          <button type="button" onClick={(event) => { event.stopPropagation(); showNext() }} aria-label="Next image" className="absolute bottom-5 right-5 rounded-full bg-white/15 p-3 text-white transition hover:bg-[#f52227] sm:bottom-auto sm:right-7 sm:top-1/2 sm:-translate-y-1/2">
+            <LuChevronRight className="size-6 sm:size-7" />
+          </button>
+        </div>
+      )}
     </footer>
   )
 }

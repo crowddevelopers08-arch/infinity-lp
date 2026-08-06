@@ -60,7 +60,7 @@ function ProcessImage({ className = "" }: { className?: string }) {
       </div>
 
       <div className="absolute bottom-0 left-6 right-0 bg-[#f52227]/90 px-7 py-5 text-white backdrop-blur-sm sm:left-28 lg:-right-4 lg:left-12 xl:-right-6 xl:left-20">
-        <p className="pr-24 text-sm font-bold leading-relaxed tracking-wide">
+        <p className=" max-sm:pr-0 pr-24 text-sm font-bold leading-relaxed tracking-wide">
           Dr Narendra Nikumbh personally performs every stage of the procedure.
         </p>
         <a href="#book" className="mt-3 inline-block rounded-full bg-white px-4 py-2 text-sm font-bold tracking-wide text-black transition-colors duration-300 hover:bg-[#f52227]/90 hover:text-white">

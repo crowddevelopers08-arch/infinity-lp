@@ -72,7 +72,7 @@ export default function AboutClinic() {
               </text>
             </svg>
             <span className="grid size-14 place-items-center rounded-full bg-[#f52227] text-base font-bold leading-none text-white sm:text-lg">
-              20+
+              12+
             </span>
           </div>
         </div>

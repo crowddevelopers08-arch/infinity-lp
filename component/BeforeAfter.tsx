@@ -101,6 +101,7 @@ export default function BeforeAfter() {
 
         <div
           className="relative mx-auto mt-5 max-w-5xl select-none sm:mt-6"
+          onContextMenu={(event) => event.preventDefault()}
           onTouchStart={(event) => {
             touchStartX.current = event.touches[0]?.clientX ?? null
           }}
@@ -136,8 +137,9 @@ export default function BeforeAfter() {
                   alt={result.alt}
                   fill
                   priority={index < 3}
+                  draggable={false}
                   sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 320px"
-                  className="object-cover"
+                  className="pointer-events-none object-cover"
                 />
               </div>
             ))}
