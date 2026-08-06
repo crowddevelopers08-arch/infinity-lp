@@ -48,7 +48,7 @@ export default function FaqShowcase() {
           <div className="hero-slow-item hero-slow-right hero-delay-3 relative mx-auto my-6 block aspect-[4/5] w-full max-w-md overflow-hidden sm:hidden">
             <div className="relative size-full overflow-hidden">
               <Image
-                src="/doctors.png"
+                src="/Dr-Nare.PNG"
                 alt="Hair restoration doctor in a modern clinic"
                 fill
                 sizes="88vw"

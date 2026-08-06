@@ -22,7 +22,7 @@ const CONDITIONS: Condition[] = [
     description:
       "Your treatment is planned and performed by Dr Narendra Nikumbh, a board-certified dermatologist with 12+ years of extensive expertise in hair restoration.",
     list: [],
-    image: "/dermologies.avif",
+    image: "/dermologiesed1.jpg",
   },
   {
     name: "Doctor-Led Hair Transplants",
@@ -40,7 +40,7 @@ const CONDITIONS: Condition[] = [
     description:
       "We believe patients deserve clear answers, not sales pitches. If you're not the right candidate for a hair transplant, we'll tell you honestly and recommend alternatives better suited to your condition.",
     list: [],
-    image: "/consultation.avif",
+    image: "/Consultations.avif",
   },
   {
     name: "Natural Hairline Design",
@@ -49,7 +49,7 @@ const CONDITIONS: Condition[] = [
     description:
       "Every hairline is designed according to your facial proportions, age, existing density, and future pattern of hair loss to create results that look naturally yours.",
     list: [],
-    image: "https://res.cloudinary.com/n0ccg2u6/image/upload/hairthinning_urxqij.png",
+    image: "/natural-line-treatment.avif",
   },
   {
     name: "Advanced Hair Restoration Techniques",
@@ -64,7 +64,7 @@ const CONDITIONS: Condition[] = [
       "BIO FUE",
       "Standard FUE",
     ],
-    image: "/Restoration.avif",
+    image: "/Restoration1.jpg",
   },
   {
     name: "Is Hair Loss Affecting Your Confidence?",
@@ -198,7 +198,7 @@ export default function Conditions() {
                 fill
                 priority={activeIndex === 0}
                 sizes="(max-width: 1024px) 94vw, 62vw"
-                className="animate-[hero-image-zoom-in_1.3s_cubic-bezier(0.16,1,0.3,1)_both] object-cover"
+                className="animate-[hero-image-zoom-in_1.3s_cubic-bezier(0.16,1,0.3,1)_both] object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#171415]/75 via-transparent to-transparent" />
               {/* <div className="absolute bottom-5 left-5 flex items-center gap-3 sm:bottom-7 sm:left-7">
