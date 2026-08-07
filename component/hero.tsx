@@ -48,7 +48,7 @@ export default function FaqShowcase() {
           <div className="hero-slow-item hero-slow-right hero-delay-3 relative mx-auto my-6 block aspect-[4/5] w-full max-w-md overflow-hidden sm:hidden">
             <div className="relative size-full overflow-hidden">
               <Image
-                src="/Dr-Nare.PNG"
+                src="/doctor1.png"
                 alt="Hair restoration doctor in a modern clinic"
                 fill
                 sizes="88vw"
@@ -97,7 +97,7 @@ export default function FaqShowcase() {
 
         <div className="hero-slow-item hero-slow-right hero-delay-3 relative hidden min-h-[560px] w-full min-w-0 self-stretch overflow-hidden lg:block">
           <Image
-            src="/doctors.png"
+            src="/doctor1.png"
             alt="Dr Narendra Nikumbh, board-certified dermatologist and hair restoration doctor"
             fill
             priority
@@ -113,7 +113,7 @@ export default function FaqShowcase() {
         <div className="hero-slow-item hero-slow-right hero-delay-3 relative mx-auto hidden aspect-[4/2] w-full max-w-md overflow-hidden sm:block lg:hidden">
           <div className="relative size-full overflow-hidden">
             <Image
-              src="/doctors.png"
+              src="/doctor1.png"
               alt="Hair restoration doctor in a modern clinic"
               fill
               sizes="88vw"
