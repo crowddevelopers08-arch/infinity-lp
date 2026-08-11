@@ -6,12 +6,14 @@ import GenericHero from "@/component/generic/GenericHero"
 import GenericQualityServices from "@/component/generic/GenericQualityServices"
 import GenericRoadmap from "@/component/generic/GenericRoadmap"
 import GenericSolutions from "@/component/generic/GenericSolutions"
+import BeforeAfter from "@/component/generic/BeforeAfter"
 
 export default function GenericPage() {
   return (
     <main id="top" className="min-h-screen bg-white">
       <GenericHeader />
       <GenericHero />
+      <BeforeAfter />
       <GenericAbout />
       <GenericSolutions />
       <GenericRoadmap />

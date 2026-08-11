@@ -8,13 +8,13 @@ const solutions = [
   {
     title: "Excessive Hair Fall",
     description: "Noticing more hair on your pillow, in the shower, or while combing? Early diagnosis can help identify the cause and slow down further hair loss before it progresses.",
-    treatments: "PRP • GFC • PGFRP™ • IAC Hair Regrowth System",
+    treatments: "PRP • GFC • IAC- HRS",
     image: "/hair-loss.jpg",
   },
   {
     title: "Hair Thinning & Reduced Density",
     description: "If your hair has become finer, lacks volume, or your scalp is becoming more visible, customised hair regrowth treatments can help strengthen existing follicles and improve overall density.",
-    treatments: "PGFRP™ • IAC Hair Regrowth System",
+    treatments: "IAC- HRS ",
     image: "/Reduced-Density.avif",
   },
   {
@@ -38,7 +38,7 @@ const solutions = [
   {
     title: "Previous Hair Treatments Didn't Work?",
     description: "Not every treatment works for every patient. If you've tried PRP or other therapies without seeing the desired results, we'll evaluate your hair, review your treatment history, and recommend the next best step.",
-    treatments: "PGFRP™ • IAC Hair Regrowth System • Hair Transplant",
+    treatments: "IAC- HRS",
     image: "/Previous-Hair.avif",
   },
 ]
