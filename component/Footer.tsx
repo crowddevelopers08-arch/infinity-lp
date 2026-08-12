@@ -106,8 +106,7 @@ export default function Footer() {
                 <LuMapPin className="mt-0.5 size-4 shrink-0 text-[#f52227]" />
                 <address className="not-italic">
                   <span className="block text-xs font-bold uppercase tracking-wider text-white/80">Clinic Address</span>
-                  Shri Ramkrishna Netralaya, Infinity Aesthetics Clinic, Shop No. 5, 1st Floor, Dosti Imperia,
-                  beside Ghodbunder Service Road, opposite R-Mall, Manpada, Thane West, Maharashtra 400607
+                  Shop No. 1, Sudhir Kishor Sharma, Majiwada, Thane, Maharashtra 400606
                 </address>
               </li>
             </ul>
@@ -138,7 +137,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 pt-3 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-3 pt-4 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 M/S INFINITY MEDISURGE & AESTHETICS LLP. All rights reserved.</p>
           <a href="/privacy-policy" className="text-white/60 hover:text-white">
             Privacy Policy
