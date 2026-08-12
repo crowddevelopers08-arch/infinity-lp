@@ -139,7 +139,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-3 pt-3 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 Infinity Aesthetics Clinic. All rights reserved.</p>
+          <p>© 2026 M/S INFINITY MEDISURGE & AESTHETICS LLP. All rights reserved.</p>
           <a href="/privacy-policy" className="text-white/60 hover:text-white">
             Privacy Policy
           </a>
