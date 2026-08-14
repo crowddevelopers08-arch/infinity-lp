@@ -7,6 +7,7 @@ import GenericQualityServices from "@/component/generic/GenericQualityServices"
 import GenericRoadmap from "@/component/generic/GenericRoadmap"
 import GenericSolutions from "@/component/generic/GenericSolutions"
 import BeforeAfter from "@/component/generic/BeforeAfter"
+import { MobileActionBar } from "@/component/generic/MobileActionBar"
 
 export default function GenericPage() {
   return (
@@ -20,6 +21,7 @@ export default function GenericPage() {
       <GenericQualityServices />
       <GenericConsultation />
       <Footer />
+      <MobileActionBar />
     </main>
   )
 }
