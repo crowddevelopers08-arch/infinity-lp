@@ -4,7 +4,7 @@ const STEPS = [
   {
     title: "Bright Lights",
     description: "They stop worrying about bright lights.",
-    icon: "/icon-1.png",
+    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695496/icon-1.png",
     color: "#f52227",
     left: "17.5%",
     top: "64%",
@@ -13,7 +13,7 @@ const STEPS = [
   {
     title: "Photographs",
     description: "They stop avoiding photographs.",
-    icon: "/icon-2.png",
+    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695497/icon-2.png",
     color: "#62595c",
     left: "38.5%",
     top: "22%",
@@ -22,7 +22,7 @@ const STEPS = [
   {
     title: "Their Hairstyle",
     description: "They stop adjusting their hairstyle every few minutes.",
-    icon: "/icon-3.png",
+    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695497/icon-3.png",
     color: "#ef565a",
     left: "59%",
     top: "64%",
@@ -31,7 +31,7 @@ const STEPS = [
   {
     title: "Meetings",
     description: "They stop feeling self-conscious in meetings.",
-    icon: "/icon-4.png",
+    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695497/icon-4.png",
     color: "#231f20",
     left: "79.5%",
     top: "22%",

@@ -6,8 +6,8 @@ import { LuPlay } from "react-icons/lu"
 
 const slides = [
   {
-    image: "/final-cta-consultation.png",
-    mobileImage: "/final-mbl.png",
+    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695492/final-cta-consultation.png",
+    mobileImage: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695492/final-mbl.png",
     position: "object-[68%_center] sm:object-center",
     badge: "Infinity",
     tagline: "Diagnosis · Restoration · Confidence",
@@ -15,8 +15,8 @@ const slides = [
     description: "Doctor-led diagnosis, personalised hair regrowth therapies, and advanced hair transplant solutions designed around your unique needs.",
   },
   {
-    image: "/Have-realistic.png",
-    mobileImage: "/Have-realistic-mble.png",
+    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695495/Have-realistic.png",
+    mobileImage: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695495/Have-realistic-mble.png",
     position: "object-[64%_center] sm:object-center",
     badge: "Natural Results",
     tagline: "Personalised · Precise · Doctor-Led",

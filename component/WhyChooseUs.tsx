@@ -3,32 +3,27 @@ import Image from "next/image"
 const CANDIDATE_SIGNS = [
   {
     title: "Have a receding hairline or advanced pattern baldness.",
-    image: "/images01.png",
-    // image: "https://res.cloudinary.com/n0ccg2u6/image/upload/bald_i39yp8.png",
+    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695498/images01.png",
   },
   {
     title: "Have thinning over the crown with a healthy donor area.",
-    // image: "https://res.cloudinary.com/n0ccg2u6/image/upload/hairthinning_urxqij.png",
-    image: "/Have-thinning.jpeg",
+    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695495/Have-thinning.jpg",
   },
   {
     title: "Have realistic expectations about the outcome.",
-    image: "/Have-realistic.png",
-    // image: "https://res.cloudinary.com/n0ccg2u6/image/upload/regrow_hx1biq.png",
+    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695495/Have-realistic.png",
   },
   {
     title: "Have stable hair loss.",
-    image: "/hair-los.webp",
-    // image: "https://res.cloudinary.com/n0ccg2u6/image/upload/loss_nrv9dx.png",
+    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695494/hair-los.webp",
   },
   {
     title: "Want a permanent, natural-looking solution.",
-    image: "/images05.png",
-    // image: "https://res.cloudinary.com/n0ccg2u6/image/upload/hair-trinity_yud9gy.jpg",
+    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695505/infinity-image.png",
   },
   {
     title: "Have already explored or completed medical hair loss treatments.",
-    image: "https://res.cloudinary.com/n0ccg2u6/image/upload/scalp_dvynfh.png",
+    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695493/hair-image-1.avif",
   },
 ]
 

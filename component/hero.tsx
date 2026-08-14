@@ -3,20 +3,26 @@ import Image from "next/image"
 export default function FaqShowcase() {
   return (
     <section id="hair-analysis" className="relative overflow-hidden bg-gradient-to-br from-white via-[#fffafa] to-[#fff0f0]/60 font-[family-name:var(--font-merriweather)] text-[#231f20]">
-      <div aria-hidden className="absolute inset-0 hidden opacity-55 sm:block">
-        {/* <span className="absolute -left-1 top-[46%] size-24 rounded-[20px] border-2 border-[#697178] motion-safe:animate-[float_4.5s_ease-in-out_infinite]" /> */}
-        {/* <span className="absolute left-[38%] top-8 size-10 rounded-xl border-2 border-[#697178] motion-safe:animate-[float_3.8s_ease-in-out_infinite_reverse]" /> */}
-        {/* <span className="absolute left-[43%] -top-8 size-24 rounded-[24px] border-2 border-[#697178] motion-safe:animate-[float_5.2s_ease-in-out_infinite] motion-safe:[animation-delay:-1.4s]" /> */}
-        {/* <span className="absolute right-[10%] top-8 size-10 rounded-xl border-2 border-[#697178] motion-safe:animate-[float_4.2s_ease-in-out_infinite_reverse] motion-safe:[animation-delay:-.8s]" />
-        <span className="absolute -right-6 top-[38%] size-24 rounded-[20px] border-2 border-[#697178] motion-safe:animate-[float_5s_ease-in-out_infinite] motion-safe:[animation-delay:-2s]" />
-        <span className="absolute left-[58%] top-20 grid grid-cols-3 gap-3 motion-safe:animate-[float_4.6s_ease-in-out_infinite_reverse] motion-safe:[animation-delay:-1.2s]">
-          {Array.from({ length: 9 }).map((_, index) => (
-            <i key={index} className="size-1 rounded-full bg-[#697178]" />
-          ))}
-        </span> */}
+      <div aria-hidden className="hero-background-slideshow absolute inset-0 overflow-hidden">
+        <span
+          className="hero-background-slide"
+          style={{ backgroundImage: "url('https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695495/hero-1.jpg')" }}
+        />
+        <span
+          className="hero-background-slide"
+          style={{ backgroundImage: "url('https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695501/img-4.webp')" }}
+        />
+        <span
+          className="hero-background-slide"
+          style={{ backgroundImage: "url('https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695500/img-3.jpg')" }}
+        />
       </div>
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-r from-white/82 via-white/58 to-[#fff0f0]/25"
+      />
 
-      <div className="relative mx-auto grid min-h-0 max-w-[1800px] gap-8 px-5 pb-0 pt-2 sm:px-8 lg:min-h-[590px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-0 lg:px-14 xl:px-20">
+      <div className="relative mx-auto grid min-h-0 max-w-[1800px] gap-8 px-5 pb-0 pt-2 sm:px-8 lg:min-h-[590px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-0 lg:pl-14 lg:pr-0 xl:pl-20">
         <div className="relative z-10 w-full min-w-0 self-center pb-8 lg:py-3 lg:pr-8">
           <div className="hero-slow-item hero-slow-left hero-delay-1 inline-flex items-center gap-3">
             <svg aria-hidden="true" viewBox="0 0 44 22" className="h-5 w-10 text-[#f52227]" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="1.6">
@@ -36,10 +42,10 @@ export default function FaqShowcase() {
           <h2 className="hero-slow-item hero-slow-left hero-delay-2 mt-2 w-full text-3xl font-bold leading-tight tracking-tight text-[#231f20] sm:text-4xl lg:text-[2.15rem]">
             Thinking About a{" "}
             <span className="relative inline-block font-black italic text-[#f52227]">
-              Hair Transplant?
-              <span aria-hidden className="absolute -bottom-1 left-0 h-0.5 w-full origin-left -rotate-1 " />
+              Hair Transplant
+              {/* <span aria-hidden className="absolute -bottom-1 left-0 h-0.5 w-full origin-left -rotate-1 bg-[#f52227]/65" /> */}
             </span>{" "}
-            Start With the{" "}
+            <span className="relative inline-block font-black italic text-[#f52227]">Thane?</span> Start With the{" "}
             <span className="inline-flex -rotate-1 items-center rounded-full border border-[#f52227] bg-[#f52227]/10 px-3 py-0.5 text-[0.82em] text-[#231f20] shadow-[0_0_0_3px_rgba(245,34,39,0.08)]">
               Right Diagnosis.
             </span>
@@ -48,7 +54,7 @@ export default function FaqShowcase() {
           <div className="hero-slow-item hero-slow-right hero-delay-3 relative mx-auto my-6 block aspect-[4/5] w-full max-w-md overflow-hidden sm:hidden">
             <div className="relative size-full overflow-hidden">
               <Image
-                src="/doctor1.png"
+                src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695490/doctor1.png"
                 alt="Hair restoration doctor in a modern clinic"
                 fill
                 sizes="88vw"
@@ -97,14 +103,13 @@ export default function FaqShowcase() {
 
         <div className="hero-slow-item hero-slow-right hero-delay-3 relative hidden min-h-[560px] w-full min-w-0 self-stretch overflow-hidden lg:block">
           <Image
-            src="/doctor1.png"
+            src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695490/doctor1.png"
             alt="Dr Narendra Nikumbh, board-certified dermatologist and hair restoration doctor"
             fill
             priority
             sizes="(max-width: 1024px) 0px, 50vw"
             className="hero-image-zoom object-cover object-top"
           />
-          {/* <div className="absolute inset-0 bg-gradient-to-t from-[#231f20]/35 via-transparent to-transparent" /> */}
           <p className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#231f20]/85 px-6 py-2.5 text-center text-sm font-bold text-white shadow-xl backdrop-blur-sm">
             Dr Narendra Nikumbh
           </p>
@@ -113,7 +118,7 @@ export default function FaqShowcase() {
         <div className="hero-slow-item hero-slow-right hero-delay-3 relative mx-auto hidden aspect-[4/2] w-full max-w-md overflow-hidden sm:block lg:hidden">
           <div className="relative size-full overflow-hidden">
             <Image
-              src="/doctor1.png"
+              src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695490/doctor1.png"
               alt="Hair restoration doctor in a modern clinic"
               fill
               sizes="88vw"
@@ -124,6 +129,7 @@ export default function FaqShowcase() {
             Dr Narendra Nikumbh
           </p>
         </div>
+
       </div>
     </section>
   )

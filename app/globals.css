@@ -597,6 +597,53 @@ body {
   to { transform: scale(1); }
 }
 
+.hero-background-slide {
+  position: absolute;
+  inset: -3%;
+  display: block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0;
+  transform-origin: center;
+  animation: hero-background-slideshow 18s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+.hero-background-slide:nth-child(2) {
+  animation-delay: 6s;
+}
+
+.hero-background-slide:nth-child(3) {
+  animation-delay: 12s;
+}
+
+@keyframes hero-background-slideshow {
+  0% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  4% {
+    opacity: 0.4;
+  }
+  17% {
+    opacity: 0.4;
+    transform: scale(1.1);
+  }
+  29% {
+    opacity: 0.4;
+    transform: scale(1.04);
+  }
+  33.333% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+}
+
 .hero-image-zoom {
   animation: hero-image-zoom-in 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
   will-change: transform;
@@ -624,6 +671,16 @@ body {
 .hero-delay-10 { animation-delay: 0.98s; }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero-background-slide {
+    animation: none;
+    transform: none;
+    opacity: 0;
+  }
+
+  .hero-background-slide:first-child {
+    opacity: 0.32;
+  }
+
   .hero-slow-item {
     opacity: 1;
     filter: none;

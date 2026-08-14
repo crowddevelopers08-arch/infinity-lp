@@ -7,37 +7,37 @@ const WorkProcessSection = () => {
     {
       number: '1',
       title: 'Careful Donor Area Planning',
-      icon: '/proc-icon-1.png',
+      icon: 'https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695508/proc-icon-1.png',
       isImage: true
     },
     {
       number: '2',
       title: 'Natural Hairline Design',
-      icon: '/proc-icon-s2.png',
+      icon: 'https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695510/proc-icon-s2.png',
       isImage: true
     },
     {
       number: '3',
       title: 'Precision Graft Placement',
-      icon: '/proc-icon-3.png',
+      icon: 'https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695509/proc-icon-3.png',
       isImage: true
     },
     {
       number: '4',
       title: 'Correct Implantation Angles',
-      icon: '/proc-icon-4.png',
+      icon: 'https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695509/proc-icon-4.png',
       isImage: true
     },
     {
       number: '5',
       title: 'High Graft Survival',
-      icon: '/proc-icon-5.png',
+      icon: 'https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695509/proc-icon-5.png',
       isImage: true
     },
     {
       number: '6',
       title: 'Long-Term Aesthetic Planning',
-      icon: '/proc-icon-6.png',
+      icon: 'https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695510/proc-icon-6.png',
       isImage: true
     }
   ];

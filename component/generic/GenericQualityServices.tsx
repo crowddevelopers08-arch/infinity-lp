@@ -2,11 +2,11 @@ import Image from "next/image"
 import { LuArrowUpRight } from "react-icons/lu"
 
 const services = [
-  { title: "Understanding Your Concerns", category: "and Expectations", image: "/images-1.avif" },
-  { title: "Assessing Your Scalp and ", category: "Pattern of Hair Loss", image: "/images-2.jpg" },
-  { title: "Identifying the ", category: "Underlying Cause", image: "/ima.jpg" },
-  { title: "Discussing Suitable ", category: "Treatment Options", image: "/images-4.avif" },
-  { title: "Creating a Personalised Hair ", category: "Restoration Roadmap", image: "/images-5.avif" },
+  { title: "Understanding Your Concerns", category: "and Expectations", image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695498/images-1.avif" },
+  { title: "Assessing Your Scalp and ", category: "Pattern of Hair Loss", image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695499/images-2.jpg" },
+  { title: "Identifying the ", category: "Underlying Cause", image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695497/ima.jpg" },
+  { title: "Discussing Suitable ", category: "Treatment Options", image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695499/images-4.avif" },
+  { title: "Creating a Personalised Hair ", category: "Restoration Roadmap", image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695500/images-5.avif" },
 ]
 
 export default function GenericQualityServices() {

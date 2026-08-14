@@ -15,7 +15,7 @@ export default function ThankYouPage() {
       <span aria-hidden className="absolute -left-24 top-1/4 size-72 rounded-full border-[40px] border-[#f52227]/5" />
       <span aria-hidden className="absolute -right-28 bottom-0 size-96 rounded-full border-[54px] border-[#231f20]/5" />
       <section className="relative w-full max-w-xl rounded-[2rem] border border-[#eadfe0] bg-white px-6 py-10 text-center shadow-[0_30px_80px_rgba(35,31,32,0.12)] sm:px-12 sm:py-12">
-        <Image src="/logo.png" alt="Infinity Aesthetics Clinic" width={180} height={64} className="mx-auto h-14 w-auto object-contain" priority />
+        <Image src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695505/logo.png" alt="Infinity Aesthetics Clinic" width={180} height={64} className="mx-auto h-14 w-auto object-contain" priority />
         <span className="mx-auto mt-8 grid size-20 place-items-center rounded-full bg-[#f52227] text-white shadow-[0_14px_35px_rgba(245,34,39,0.25)]">
           <LuCheck className="size-10" strokeWidth={2.4} />
         </span>

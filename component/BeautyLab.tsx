@@ -11,7 +11,7 @@ const FEATURES = [
         pattern of hair loss, medical history, and long-term goals before recommending any treatment.
       </>
     ),
-    icon: "/our-icon-1.png",
+    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695506/our-icon-1.png",
   },
   {
     title: "Step 2: Personalised Hairline Planning",
@@ -21,7 +21,7 @@ const FEATURES = [
         carefully designed to suit your facial features while considering how your hair may change over the years.
       </>
     ),
-    icon: "/our-icons-2.png",
+    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695507/our-icons-2.png",
   },
   {
     title: "Step 3: Precision Hair Transplant",
@@ -31,7 +31,7 @@ const FEATURES = [
         follicles are carefully extracted and implanted while maintaining natural direction, density, and graft survival.
       </>
     ),
-    icon: "/our-icon-3.png",
+    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695506/our-icon-3.png",
   },
   {
     title: "Step 4: Recovery & Long-Term Hair Growth",
@@ -41,7 +41,7 @@ const FEATURES = [
         <strong className="font-semibold text-[#342e30]">long-term hair growth</strong>.
       </>
     ),
-    icon: "/our-icons-4.png",
+    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695507/our-icons-4.png",
     accent: true,
   },
 ]
@@ -51,7 +51,7 @@ function ProcessImage({ className = "" }: { className?: string }) {
     <div className={`relative w-full pb-20 lg:pb-14 ${className}`}>
       <div className="relative aspect-[1.5/1] overflow-hidden">
         <Image
-          src="/clinic-images.JPG"
+          src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695489/clinic-images.jpg"
           alt="A professional aesthetics facial treatment"
           fill
           sizes="(max-width: 1024px) 100vw, 38vw"

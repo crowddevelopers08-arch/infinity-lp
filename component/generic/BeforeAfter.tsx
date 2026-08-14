@@ -3,8 +3,18 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const RESULTS = Array.from({ length: 9 }, (_, index) => ({
-  src: "/bfaf-" + (index + 1) + ".jpg",
+const RESULTS = [
+  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695486/bfaf-1.jpg",
+  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695486/bfaf-2.jpg",
+  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695487/bfaf-3.jpg",
+  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695487/bfaf-4.jpg",
+  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695487/bfaf-5.jpg",
+  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695487/bfaf-6.jpg",
+  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695488/bfaf-7.jpg",
+  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695488/bfaf-8.jpg",
+  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695488/bfaf-9.jpg",
+].map((src, index) => ({
+  src,
   alt: "Hair restoration before and after result " + (index + 1),
 }));
 

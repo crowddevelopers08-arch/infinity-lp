@@ -18,43 +18,43 @@ const CONDITIONS: Condition[] = [
   {
     name: "Board-Certified Dermatologist",
     shortName: "Medical Expertise",
-    icon: "/infinity-icon-1.png",
+    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695503/infinity-icon-1.png",
     description:
       "Your treatment is planned and performed by Dr Narendra Nikumbh, a board-certified dermatologist with 12+ years of extensive expertise in hair restoration.",
     list: [],
-    image: "/dermologiesed1.jpg",
+    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695490/dermologies.png",
   },
   {
     name: "Doctor-Led Hair Transplants",
     shortName: "Doctor-Led Care",
-    icon: "/infinity-icon-2.png",
+    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695503/infinity-icon-2.png",
     description:
       "Every hair transplant procedure is personally performed by the doctor, not delegated to technicians.",
     list: ["Every graft.", "Every angle.", "Every decision."],
-    image: "/Hair-Transplants.avif",
+    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695494/Hair-Transplants.avif",
   },
   {
     name: "Honest, Personalised Consultations",
     shortName: "Honest Guidance",
-    icon: "/infinity-icon-3.png",
+    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695503/infinity-icon-3.png",
     description:
       "We believe patients deserve clear answers, not sales pitches. If you're not the right candidate for a hair transplant, we'll tell you honestly and recommend alternatives better suited to your condition.",
     list: [],
-    image: "/Consultations.avif",
+    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695489/Consultations.avif",
   },
   {
     name: "Natural Hairline Design",
     shortName: "Natural Design",
-    icon: "/infinity-icon-4.png",
+    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695504/infinity-icon-4.png",
     description:
       "Every hairline is designed according to your facial proportions, age, existing density, and future pattern of hair loss to create results that look naturally yours.",
     list: [],
-    image: "/natural-line-treatment.avif",
+    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695489/codition-image.png",
   },
   {
     name: "Advanced Hair Restoration Techniques",
     shortName: "Advanced Techniques",
-    icon: "/infinity-icon-5.png",
+    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695504/infinity-icon-5.png",
     description:
       "We use advanced FUE-based techniques and meticulous graft handling to maximise graft survival and promote healthy, natural hair growth.",
     listLabel: "Techniques",
@@ -64,12 +64,12 @@ const CONDITIONS: Condition[] = [
       "BIO FUE",
       "Standard FUE",
     ],
-    image: "/Restoration1.jpg",
+    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695489/codition-image-1.png",
   },
   {
     name: "Is Hair Loss Affecting Your Confidence?",
     shortName: "Confidence & Care",
-    icon: "/infinity-icon-6.png",
+    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695504/infinity-icon-6.png",
     description:
       "Hair loss can change more than your appearance. When it begins to affect how you live, seeking professional guidance becomes important.",
     listLabel: "You may notice",
@@ -79,7 +79,7 @@ const CONDITIONS: Condition[] = [
       "Checking your hairline repeatedly",
       "Feeling less confident socially",
     ],
-    image: "/hair-loss.jpg",
+    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695494/hair-loss.jpg",
   },
 ]
 
@@ -143,7 +143,7 @@ export default function Conditions() {
           </p>
         </header>
 
-        <div className="mt-6 grid gap-5 lg:grid-cols-2 lg:gap-7">
+        <div className="mt-6 grid gap-5 lg:grid-cols-[minmax(280px,0.72fr)_minmax(0,1.28fr)] lg:gap-7">
           <div ref={titleRowRef} className="flex gap-3 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] lg:grid lg:h-full lg:grid-rows-6 lg:overflow-visible lg:pb-0">
             {CONDITIONS.map((condition, index) => {
               const selected = index === activeIndex
@@ -189,8 +189,8 @@ export default function Conditions() {
             })}
           </div>
 
-          <article className="overflow-hidden rounded-[26px] border border-[#eadfe0] bg-white text-[#231f20] shadow-[0_24px_65px_-28px_rgba(35,31,32,0.32)]">
-            <div className="relative h-[240px] overflow-hidden sm:h-[275px] lg:h-[285px]">
+          <article className="overflow-hidden rounded-[26px] border border-[#eadfe0] bg-white text-[#231f20] shadow-[0_24px_65px_-28px_rgba(35,31,32,0.32)] lg:grid lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
+            <div className="relative h-[240px] overflow-hidden sm:h-[275px] lg:h-full lg:min-h-[430px]">
               <Image
                 key={active.image}
                 src={active.image}
@@ -211,7 +211,7 @@ export default function Conditions() {
               </div> */}
             </div>
 
-            <div className="p-5 sm:p-6 lg:p-6">
+            <div className="p-5 sm:p-6 lg:flex lg:flex-col lg:justify-center lg:p-7 xl:p-8">
               <div className="flex items-start gap-4">
                 <span className="hidden text-5xl font-black leading-none text-[#f52227]/15 sm:block">
                   0{activeIndex + 1}
@@ -262,7 +262,7 @@ export default function Conditions() {
 
               <a
                 href="#book"
-                className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#231f20] px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#f52227]"
+                className="mt-4 inline-flex w-fit self-start items-center gap-2 rounded-full bg-[#231f20] px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#f52227]"
               >
                 Book Your Consultation
                 <LuArrowUpRight className="size-4" />

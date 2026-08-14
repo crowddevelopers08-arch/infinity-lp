@@ -14,15 +14,15 @@ const QUICK_LINKS = [
 ]
 
 const GALLERY_IMAGES = [
-  "/img-1.JPG",
-  "/img-2.JPG",
-  "/img-3.JPG",
-  "/img-4.webp",
-  "/img-5.webp",
-  "/img-6.webp",
-  "/img-7.webp",
-  "/img-8.webp",
-  "/img-9.webp",
+  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695500/img-1.jpg",
+  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695500/img-2.jpg",
+  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695500/img-3.jpg",
+  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695501/img-4.webp",
+  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695501/img-5.webp",
+  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695501/img-6.webp",
+  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695502/img-7.webp",
+  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695502/img-8.webp",
+  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695502/img-9.webp",
 ]
 
 export default function Footer() {
@@ -52,7 +52,7 @@ export default function Footer() {
         <div className="grid gap-10 border-b border-white/10 pb-8 lg:grid-cols-[1.25fr_0.75fr_0.9fr_1.1fr] lg:gap-12">
           <div>
             <a href="#" aria-label="Infinity Aesthetics Clinic home" className="inline-flex rounded-xl bg-white px-4 py-3">
-              <Image src="/logo.png" alt="Infinity Aesthetics Clinic" width={176} height={64} className="h-12 w-auto object-contain" />
+              <Image src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695505/logo.png" alt="Infinity Aesthetics Clinic" width={176} height={64} className="h-12 w-auto object-contain" />
             </a>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/60">
               Doctor-led hair restoration built around accurate diagnosis, personalised planning, and natural-looking
