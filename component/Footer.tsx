@@ -1,8 +1,5 @@
-"use client"
-
 import Image from "next/image"
-import { useEffect, useState } from "react"
-import { LuChevronLeft, LuChevronRight, LuHeartPulse, LuMapPin, LuMessageCircle, LuPhone, LuX } from "react-icons/lu"
+import { LuChevronRight, LuHeartPulse, LuMapPin, LuMessageCircle, LuPhone } from "react-icons/lu"
 
 const QUICK_LINKS = [
   { label: "Process", href: "#process", id: "process" },
@@ -13,35 +10,7 @@ const QUICK_LINKS = [
   { label: "FAQ", href: "#faq", id: "faq" },
 ]
 
-const GALLERY_IMAGES = [
-  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695500/img-1.jpg",
-  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695500/img-2.jpg",
-  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695500/img-3.jpg",
-  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695501/img-4.webp",
-  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695501/img-5.webp",
-  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695501/img-6.webp",
-  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695502/img-7.webp",
-  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695502/img-8.webp",
-  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695502/img-9.webp",
-]
-
 export default function Footer() {
-  const [activeImage, setActiveImage] = useState<number | null>(null)
-  const closeGallery = () => setActiveImage(null)
-  const showPrevious = () => setActiveImage((current) => current === null ? current : (current - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length)
-  const showNext = () => setActiveImage((current) => current === null ? current : (current + 1) % GALLERY_IMAGES.length)
-
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (activeImage === null) return
-      if (event.key === "Escape") setActiveImage(null)
-      if (event.key === "ArrowLeft") setActiveImage((current) => current === null ? current : (current - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length)
-      if (event.key === "ArrowRight") setActiveImage((current) => current === null ? current : (current + 1) % GALLERY_IMAGES.length)
-    }
-    window.addEventListener("keydown", handleKeyDown)
-    return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [activeImage])
-
   return (
     <footer className="relative overflow-hidden bg-[#171415] font-[family-name:var(--font-merriweather)] text-white">
       <div aria-hidden className="absolute -right-24 top-16 size-96 rounded-full border border-white/5" />
@@ -113,26 +82,18 @@ export default function Footer() {
           </div>
 
           <div>
-            <h2 className="text-sm font-bold uppercase tracking-[0.16em] text-white">Gallery</h2>
-            <div className="mt-5 grid max-w-[220px] grid-cols-3 gap-1.5">
-              {GALLERY_IMAGES.map((src, index) => (
-                <button
-                  type="button"
-                  onClick={() => setActiveImage(index)}
-                  aria-label={`Open gallery image ${index + 1}`}
-                  key={src}
-                  className="group relative aspect-square overflow-hidden rounded-md border border-white/10 bg-white/5"
-                >
-                  <Image
-                    src={src}
-                    alt={`Infinity Aesthetics Clinic gallery ${index + 1}`}
-                    fill
-                    sizes="(max-width: 1024px) 28vw, 50px"
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <span className="absolute inset-0 bg-[#f52227]/0 transition-colors duration-300 group-hover:bg-[#f52227]/20" />
-                </button>
-              ))}
+            <h2 className="text-sm font-bold uppercase tracking-[0.16em] text-white">Find Us</h2>
+            <div className="mt-5 overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-[0_14px_35px_rgba(0,0,0,0.22)]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d3330.619982719341!2d72.981572!3d19.230926!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDEzJzU1LjMiTiA3MsKwNTgnMzMuOSJF!5e1!3m2!1sen!2sus!4v1786699960061!5m2!1sen!2sus"
+                title="Infinity Aesthetics Clinic location"
+                width="600"
+                height="450"
+                className="h-[220px] w-full border-0"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
             </div>
           </div>
         </div>
@@ -145,29 +106,6 @@ export default function Footer() {
           <p>Hair restoration guidance should always begin with a qualified medical assessment.</p>
         </div>
       </div>
-
-      {activeImage !== null && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={`Gallery image ${activeImage + 1}`}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-3 sm:p-8"
-          onClick={closeGallery}
-        >
-          <button type="button" onClick={closeGallery} aria-label="Close gallery" className="absolute right-3 top-3 z-10 rounded-full bg-white/15 p-2.5 text-white transition hover:bg-[#f52227] sm:right-5 sm:top-5 sm:p-3">
-            <LuX className="size-5 sm:size-6" />
-          </button>
-          <button type="button" onClick={(event) => { event.stopPropagation(); showPrevious() }} aria-label="Previous image" className="absolute bottom-5 left-5 rounded-full bg-white/15 p-3 text-white transition hover:bg-[#f52227] sm:bottom-auto sm:left-7 sm:top-1/2 sm:-translate-y-1/2">
-            <LuChevronLeft className="size-6 sm:size-7" />
-          </button>
-          <div className="relative mt-8 h-[68vh] w-full max-w-5xl sm:mt-0 sm:h-[75vh]" onClick={(event) => event.stopPropagation()}>
-            <Image src={GALLERY_IMAGES[activeImage]} alt={`Infinity Aesthetics Clinic gallery ${activeImage + 1}`} fill sizes="(max-width: 1024px) 100vw, 1024px" className="object-contain" priority />
-          </div>
-          <button type="button" onClick={(event) => { event.stopPropagation(); showNext() }} aria-label="Next image" className="absolute bottom-5 right-5 rounded-full bg-white/15 p-3 text-white transition hover:bg-[#f52227] sm:bottom-auto sm:right-7 sm:top-1/2 sm:-translate-y-1/2">
-            <LuChevronRight className="size-6 sm:size-7" />
-          </button>
-        </div>
-      )}
     </footer>
   )
 }

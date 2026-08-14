@@ -42,7 +42,7 @@ export default function FaqShowcase() {
           <h2 className="hero-slow-item hero-slow-left hero-delay-2 mt-2 w-full text-3xl font-bold leading-tight tracking-tight text-[#231f20] sm:text-4xl lg:text-[2.15rem]">
             Thinking About a{" "}
             <span className="relative inline-block font-black italic text-[#f52227]">
-              Hair Transplant
+              Hair Transplant in
               {/* <span aria-hidden className="absolute -bottom-1 left-0 h-0.5 w-full origin-left -rotate-1 bg-[#f52227]/65" /> */}
             </span>{" "}
             <span className="relative inline-block font-black italic text-[#f52227]">Thane?</span> Start With the{" "}

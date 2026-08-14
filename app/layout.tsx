@@ -83,9 +83,9 @@ export const metadata: Metadata = {
     images: ["https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695492/final-cta-consultation.png"],
   },
   icons: {
-    icon: [{ url: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695505/logo.png", type: "image/png" }],
-    apple: [{ url: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695505/logo.png", type: "image/png" }],
-    shortcut: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695505/logo.png",
+    icon: [{ url: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786701649/web-icon-removebg-preview.png", type: "image/png" }],
+    apple: [{ url: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786701649/web-icon-removebg-preview.png", type: "image/png" }],
+    shortcut: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786701649/web-icon-removebg-preview.png",
   },
 }
 

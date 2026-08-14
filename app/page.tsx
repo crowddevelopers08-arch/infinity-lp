@@ -14,6 +14,7 @@ import ConsultationModal from "@/component/ConsultationModal";
 import BeforeAfter from "@/component/BeforeAfter";
 import { MobileActionBar } from "@/component/MobileActionBar";
 import PatientVideos from "@/component/PatientVideos";
+import { Gallery } from "@/component/Gallery";
 
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
 <ScrollReveal><FinalCta /></ScrollReveal>
 <ScrollReveal><ProcessInfographic /></ScrollReveal>
 
+<ScrollReveal><Gallery /></ScrollReveal>
 <ScrollReveal><FaqGrid /></ScrollReveal>
 <ScrollReveal><Footer /></ScrollReveal>
 <ConsultationModal />
