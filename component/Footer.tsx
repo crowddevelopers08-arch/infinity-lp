@@ -1,5 +1,11 @@
-import Image from "next/image"
-import { LuChevronRight, LuHeartPulse, LuMapPin, LuMessageCircle, LuPhone } from "react-icons/lu"
+import Image from "next/image";
+import {
+  LuChevronRight,
+  LuHeartPulse,
+  LuMapPin,
+  LuMessageCircle,
+  LuPhone,
+} from "react-icons/lu";
 
 const QUICK_LINKS = [
   { label: "Process", href: "#process", id: "process" },
@@ -8,37 +14,66 @@ const QUICK_LINKS = [
   { label: "Why Us", href: "#why", id: "why" },
   { label: "Journey", href: "#journey", id: "journey" },
   { label: "FAQ", href: "#faq", id: "faq" },
-]
+];
 
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-[#171415] font-[family-name:var(--font-merriweather)] text-white">
-      <div aria-hidden className="absolute -right-24 top-16 size-96 rounded-full border border-white/5" />
-      <div aria-hidden className="absolute -right-8 top-32 size-72 rounded-full border border-[#f52227]/15" />
-      <div aria-hidden className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-[#f52227] via-[#ef565a] to-[#231f20]" />
+      <div
+        aria-hidden
+        className="absolute -right-24 top-16 size-96 rounded-full border border-white/5"
+      />
+      <div
+        aria-hidden
+        className="absolute -right-8 top-32 size-72 rounded-full border border-[#f52227]/15"
+      />
+      <div
+        aria-hidden
+        className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-[#f52227] via-[#ef565a] to-[#231f20]"
+      />
 
       <div className="relative mx-auto max-w-[1440px] px-5 pb-4 pt-12 sm:px-8 sm:pt-16 lg:px-16 xl:px-20">
         <div className="grid gap-10 border-b border-white/10 pb-8 lg:grid-cols-[1.25fr_0.75fr_0.9fr_1.1fr] lg:gap-12">
           <div>
-            <a href="#" aria-label="Infinity Aesthetics Clinic home" className="inline-flex rounded-xl bg-white px-4 py-3">
-              <Image src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695505/logo.png" alt="Infinity Aesthetics Clinic" width={176} height={64} className="h-12 w-auto object-contain" />
+            <a
+              href="#"
+              aria-label="Infinity Aesthetics Clinic home"
+              className="inline-flex rounded-xl bg-white px-4 py-3"
+            >
+              <Image
+                src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695505/logo.png"
+                alt="Infinity Aesthetics Clinic"
+                width={176}
+                height={64}
+                className="h-12 w-auto object-contain"
+              />
             </a>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/60">
-              Doctor-led hair restoration built around accurate diagnosis, personalised planning, and natural-looking
-              long-term outcomes.
+              Doctor-led hair restoration built around accurate diagnosis,
+              personalised planning, and natural-looking long-term outcomes.
             </p>
             <div className="mt-6 inline-flex items-center gap-3 border-l-2 border-[#f52227] pl-4">
-              <LuHeartPulse className="size-6 text-[#f52227]" strokeWidth={1.8} />
-              <p className="text-sm font-bold leading-relaxed text-white">Expertise before procedures.</p>
+              <LuHeartPulse
+                className="size-6 text-[#f52227]"
+                strokeWidth={1.8}
+              />
+              <p className="text-sm font-bold leading-relaxed text-white">
+                Expertise before procedures.
+              </p>
             </div>
           </div>
 
           <nav aria-label="Footer navigation">
-            <h2 className="text-sm font-bold uppercase tracking-[0.16em] text-white">Quick Links</h2>
+            <h2 className="text-sm font-bold uppercase tracking-[0.16em] text-white">
+              Quick Links
+            </h2>
             <ul className="mt-5 space-y-3">
               {QUICK_LINKS.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="group inline-flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-white">
+                  <a
+                    href={link.href}
+                    className="group inline-flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-white"
+                  >
                     <LuChevronRight className="size-4 text-[#f52227] transition-transform group-hover:translate-x-1" />
                     {link.label}
                   </a>
@@ -48,19 +83,30 @@ export default function Footer() {
           </nav>
 
           <div>
-            <h2 className="text-sm font-bold uppercase tracking-[0.16em] text-white">Contact</h2>
+            <h2 className="text-sm font-bold uppercase tracking-[0.16em] text-white">
+              Contact
+            </h2>
             <ul className="mt-5 space-y-4 text-sm leading-relaxed text-white/60">
               <li className="flex items-start gap-3">
                 <LuPhone className="mt-0.5 size-4 shrink-0 text-[#f52227]" />
                 <div>
-                  <span className="block text-xs font-bold uppercase tracking-wider text-white/80">Phone</span>
-                  <a href="tel:+919892811033" className="transition-colors hover:text-white">+91 98928 11033</a>
+                  <span className="block text-xs font-bold uppercase tracking-wider text-white/80">
+                    Phone :
+                  </span>
+                  <a
+                    href="tel:+919892811033"
+                    className="transition-colors hover:text-white"
+                  >
+                    +91 98928 11033
+                  </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <LuMessageCircle className="mt-0.5 size-4 shrink-0 text-[#f52227]" />
                 <div>
-                  <span className="block text-xs font-bold uppercase tracking-wider text-white/80">WhatsApp</span>
+                  <span className="block text-xs font-bold uppercase tracking-wider text-white/80">
+                    WhatsApp :
+                  </span>
                   <a
                     href="https://wa.me/919892811033"
                     target="_blank"
@@ -74,18 +120,25 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <LuMapPin className="mt-0.5 size-4 shrink-0 text-[#f52227]" />
                 <address className="not-italic">
-                  <span className="block text-xs font-bold uppercase tracking-wider text-white/80">Clinic Address</span>
-                  Shop No. 1, Sudhir Kishor Sharma, Majiwada, Thane, Maharashtra 400606
+                  <span className="block text-xs font-bold uppercase tracking-wider text-white/80">
+                    Clinic Address :
+                  </span>
+                  Shop No. 5, 1st Floor Besides Shri
+                  Ramkrishna Netralaya, DOSTI IMPERIA, Ghodbunder Rd, opposite
+                  R-Mall, Manpada, Thane West, Thane, Maharashtra 400607 Thane,
+                  India, 400607.
                 </address>
               </li>
             </ul>
           </div>
 
           <div>
-            <h2 className="text-sm font-bold uppercase tracking-[0.16em] text-white">Find Us</h2>
+            <h2 className="text-sm font-bold uppercase tracking-[0.16em] text-white">
+              Find Us
+            </h2>
             <div className="mt-5 overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-[0_14px_35px_rgba(0,0,0,0.22)]">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d3330.619982719341!2d72.981572!3d19.230926!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDEzJzU1LjMiTiA3MsKwNTgnMzMuOSJF!5e1!3m2!1sen!2sus!4v1786699960061!5m2!1sen!2sus"
+                src="https://www.google.com/maps?cid=5974690872205705361&output=embed"
                 title="Infinity Aesthetics Clinic location"
                 width="600"
                 height="450"
@@ -99,13 +152,18 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-3 max-sm:pb-15 pt-4 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 M/S INFINITY MEDISURGE & AESTHETICS LLP. All rights reserved.</p>
+          <p>
+            © 2026 M/S INFINITY MEDISURGE & AESTHETICS LLP. All rights reserved.
+          </p>
           <a href="/privacy-policy" className="text-white/60 hover:text-white">
             Privacy Policy
           </a>
-          <p>Hair restoration guidance should always begin with a qualified medical assessment.</p>
+          <p>
+            Hair restoration guidance should always begin with a qualified
+            medical assessment.
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
