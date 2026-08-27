@@ -108,6 +108,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             `,
           }}
         />
+        {/* End Google Tag Manager */}
       </head>
       <body className="flex min-h-full flex-col">
         {/* Google Tag Manager (noscript) */}
@@ -119,6 +120,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+        {/* End Google Tag Manager (noscript) */}
         {children}
       </body>
     </html>
