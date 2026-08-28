@@ -1,42 +1,27 @@
-import AboutClinic from "@/component/AboutClinic";
-import BeautyLab from "@/component/BeautyLab";
-import Conditions from "@/component/Conditions";
-import Header from "@/component/Header";
-import WorkProcessSection from "@/component/our-services";
-import ProcessInfographic from "@/component/ProcessInfographic";
-import FaqShowcase from "@/component/hero";
-import WhyChooseUs from "@/component/WhyChooseUs";
-import FaqGrid from "@/component/FaqGrid";
-import FinalCta from "@/component/FinalCta";
-import Footer from "@/component/Footer";
-import ScrollReveal from "@/component/ScrollReveal";
-import ConsultationModal from "@/component/ConsultationModal";
-import BeforeAfter from "@/component/BeforeAfter";
-import { MobileActionBar } from "@/component/MobileActionBar";
-import PatientVideos from "@/component/PatientVideos";
-import { Gallery } from "@/component/Gallery";
+import GenericAbout from "@/component/generic/GenericAbout"
+import GenericConsultation from "@/component/generic/GenericConsultation"
+import Footer from "@/component/generic/Footer"
+import GenericHeader from "@/component/generic/GenericHeader"
+import GenericHero from "@/component/generic/GenericHero"
+import GenericQualityServices from "@/component/generic/GenericQualityServices"
+import GenericRoadmap from "@/component/generic/GenericRoadmap"
+import GenericSolutions from "@/component/generic/GenericSolutions"
+import BeforeAfter from "@/component/generic/BeforeAfter"
+import { MobileActionBar } from "@/component/generic/MobileActionBar"
 
-export default function Home() {
+export default function GenericPage() {
   return (
-<>
-<Header />
-<FaqShowcase />
-<ScrollReveal><PatientVideos /></ScrollReveal>
-<ScrollReveal><BeforeAfter /></ScrollReveal>
-<ScrollReveal><AboutClinic /></ScrollReveal>
-{/* <ScrollReveal><TrustFirst /></ScrollReveal> */}
-<ScrollReveal><Conditions /></ScrollReveal>
-<ScrollReveal><WhyChooseUs /></ScrollReveal>
-<ScrollReveal><BeautyLab /></ScrollReveal>
-<ScrollReveal><WorkProcessSection /></ScrollReveal>
-<ScrollReveal><FinalCta /></ScrollReveal>
-<ScrollReveal><ProcessInfographic /></ScrollReveal>
-
-<ScrollReveal><Gallery /></ScrollReveal>
-<ScrollReveal><FaqGrid /></ScrollReveal>
-<ScrollReveal><Footer /></ScrollReveal>
-<ConsultationModal />
-<MobileActionBar />
-</>
-  );
+    <main id="top" className="min-h-screen bg-white">
+      <GenericHeader />
+      <GenericHero />
+      <BeforeAfter />
+      <GenericAbout />
+      <GenericSolutions />
+      <GenericRoadmap />
+      <GenericQualityServices />
+      <GenericConsultation />
+      <Footer />
+      <MobileActionBar />
+    </main>
+  )
 }

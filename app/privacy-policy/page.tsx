@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
-import Image from "next/image"
-import Link from "next/link"
-import { LuArrowLeft } from "react-icons/lu"
+import PageFooter from "@/component/generic/PageFooter"
+import PageHeader from "@/component/generic/PageHeader"
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -19,19 +18,10 @@ const SECTIONS = [
   ["Policy Updates", "We may update this policy when our website, services, or legal obligations change. The latest version will be published on this page with its effective date."],
 ] as const
 
-export default function PrivacyPolicyPage() {
+export default function GenericPrivacyPolicyPage() {
   return (
     <main className="min-h-screen bg-[#fffafa] font-[family-name:var(--font-merriweather)] text-[#231f20]">
-      <header className="border-b border-[#eadfe0] bg-white">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-5 sm:px-8">
-          <Link href="/" aria-label="Infinity Aesthetics Clinic home">
-            <Image src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695505/logo.png" alt="Infinity Aesthetics Clinic" width={170} height={60} className="h-12 w-auto object-contain" priority />
-          </Link>
-          <Link href="/" className="inline-flex items-center gap-2 text-sm font-bold text-[#62595c] transition-colors hover:text-[#f52227]">
-            <LuArrowLeft className="size-4" /> Back to Home
-          </Link>
-        </div>
-      </header>
+      <PageHeader />
       <article className="mx-auto max-w-4xl px-5 py-12 sm:px-8 sm:py-16">
         <p className="text-xs font-bold uppercase tracking-widest text-[#f52227]">Infinity Aesthetics Clinic</p>
         <h1 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl">Privacy Policy</h1>
@@ -54,6 +44,7 @@ export default function PrivacyPolicyPage() {
           </p>
         </section>
       </article>
+      <PageFooter />
     </main>
   )
 }

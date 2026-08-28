@@ -156,7 +156,7 @@ export default function Footer() {
             reserved.
           </p>
           <a
-            href="/generic/privacy-policy"
+            href="/privacy-policy"
             className="text-white/60 hover:text-white"
           >
             Privacy Policy

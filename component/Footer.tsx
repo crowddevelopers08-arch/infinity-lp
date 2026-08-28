@@ -155,7 +155,7 @@ export default function Footer() {
           <p>
             © 2026 M/S INFINITY MEDISURGE & AESTHETICS LLP. All rights reserved.
           </p>
-          <a href="/privacy-policy" className="text-white/60 hover:text-white">
+          <a href="/hair-transplant/privacy-policy" className="text-white/60 hover:text-white">
             Privacy Policy
           </a>
           <p>
