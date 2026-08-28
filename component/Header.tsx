@@ -59,7 +59,7 @@ export default function Header() {
       </div>
 
       <div className="mx-auto flex h-14 w-full max-w-[1180px] items-center justify-between gap-4 rounded-full border border-transparent bg-white/70 pl-4 pr-2 sm:h-16 sm:pl-5 sm:pr-2.5">
-        <a href="#top" aria-label="Go to top" className="flex flex-none items-center">
+        <a href="/hair-transplant" aria-label="Go to top" className="flex flex-none items-center">
           <Image
             src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695505/logo.png"
             alt="Infinity Aesthetics and Clinic"

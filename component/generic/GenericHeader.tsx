@@ -16,7 +16,7 @@ const navigation = [
 
 function InfinityLogo() {
   return (
-    <Link href="/generic" aria-label="Infinity Aesthetics Clinic home" className="flex shrink-0 items-center">
+    <Link href="/" aria-label="Infinity Aesthetics Clinic home" className="flex shrink-0 items-center">
       <Image
         src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695505/logo.png"
         alt="Infinity Aesthetics Clinic"
