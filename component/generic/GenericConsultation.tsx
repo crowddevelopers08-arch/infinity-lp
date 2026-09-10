@@ -45,7 +45,7 @@ export default function GenericConsultation() {
       if (!response.ok || !result.success) throw new Error(result.error || "Unable to submit your consultation")
 
       form.reset()
-      router.push("/thank-you")
+      router.push(`/thank-you?from=${encodeURIComponent(window.location.pathname)}`)
     } catch (submitError) {
       setError(submitError instanceof Error ? submitError.message : "Unable to submit. Please try again.")
     } finally {

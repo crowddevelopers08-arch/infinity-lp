@@ -9,8 +9,8 @@ export default function ageHeader() {
         <Link href="/" aria-label="Infinity Aesthetics Clinic home">
           <Image src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695505/logo.png" alt="Infinity Aesthetics Clinic" width={170} height={60} className="h-12 w-auto object-contain" priority />
         </Link>
-        <Link href="/" className="inline-flex items-center gap-2 text-sm font-bold text-[#62595c] transition-colors hover:text-[#f52227]">
-          <LuArrowLeft className="size-4" /> Back to Home
+        <Link href="tel:+919892811033" className="inline-flex items-center gap-2 text-sm font-bold text-[#62595c] transition-colors hover:text-[#f52227]">
+          <LuArrowLeft className="size-4" /> +91 98928 11033
         </Link>
       </div>
     </header>

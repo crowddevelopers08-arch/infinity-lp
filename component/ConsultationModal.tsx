@@ -79,7 +79,7 @@ export default function ConsultationModal() {
       form.reset()
       setSubmitted(true)
       setIsOpen(false)
-      router.push("/hair-transplant/thank-you")
+      router.push(`/hair-transplant/thank-you?from=${encodeURIComponent(window.location.pathname)}`)
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : "Unable to submit your request. Please try again.")
     } finally {

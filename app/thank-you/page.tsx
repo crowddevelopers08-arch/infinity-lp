@@ -1,9 +1,9 @@
 import type { Metadata } from "next"
-import Link from "next/link"
-import { LuArrowLeft, LuCheck } from "react-icons/lu"
+import { LuCheck } from "react-icons/lu"
 import PageFooter from "@/component/generic/PageFooter"
 import PageHeader from "@/component/generic/PageHeader"
 import Script from "next/script"
+import ThankYouRedirect from "@/component/ThankYouRedirect"
 
 export const metadata: Metadata = {
   title: "Thank You",
@@ -11,7 +11,14 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 }
 
-export default function GenericThankYouPage() {
+export default async function GenericThankYouPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ from?: string | string[] }>
+}) {
+  const { from } = await searchParams
+  const fromPath = Array.isArray(from) ? from[0] : from
+
   return (
     <>
       {/* Google Ads Conversion Tracking */}
@@ -38,9 +45,7 @@ export default function GenericThankYouPage() {
             <p className="mx-auto mt-4 max-w-md border-l-2 border-[#f52227] pl-4 text-left text-sm font-bold leading-relaxed text-[#231f20]">
               The right treatment begins with the right diagnosis.
             </p>
-            <Link href="/" className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#231f20] px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#f52227]">
-              <LuArrowLeft className="size-4" /> Return to Home
-            </Link>
+            <ThankYouRedirect from={fromPath} />
           </div>
         </section>
         <PageFooter />
