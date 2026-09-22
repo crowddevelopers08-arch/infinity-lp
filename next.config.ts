@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "/muif2bou/image/upload/**",
+      },
+      {
+        protocol: "https",
         hostname: "images.unsplash.com",
       },
       {

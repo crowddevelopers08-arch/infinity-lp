@@ -69,7 +69,7 @@ export const metadata: Metadata = {
       "Start with an accurate hair loss diagnosis and receive personalised, doctor-led guidance for hair preservation, regrowth, or FUE hair transplantation.",
     images: [
       {
-        url: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695492/final-cta-consultation.png",
+        url: "https://res.cloudinary.com/muif2bou/image/upload/v1790064530/final-cta-consultation.png",
         width: 1792,
         height: 896,
         alt: "Doctor-led hair restoration consultation at Infinity Aesthetics Clinic",
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     title: "Hair Transplant & Hair Restoration | Infinity Aesthetics Clinic",
     description:
       "Personalised hair loss diagnosis, advanced FUE techniques, natural hairline planning, and long-term restoration care.",
-    images: ["https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695492/final-cta-consultation.png"],
+    images: ["https://res.cloudinary.com/muif2bou/image/upload/v1790064530/final-cta-consultation.png"],
   },
   icons: {
     icon: [{ url: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786701649/web-icon-removebg-preview.png", type: "image/png" }],

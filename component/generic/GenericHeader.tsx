@@ -18,7 +18,7 @@ function InfinityLogo() {
   return (
     <Link href="/" aria-label="Infinity Aesthetics Clinic home" className="flex shrink-0 items-center">
       <Image
-        src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695505/logo.png"
+        src="https://res.cloudinary.com/muif2bou/image/upload/v1790064922/logo.png"
         alt="Infinity Aesthetics Clinic"
         width={500}
         height={250}

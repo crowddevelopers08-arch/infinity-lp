@@ -6,7 +6,7 @@ export default function GenericAbout() {
       <div className="mx-auto grid w-full max-w-[1500px] items-center px-5 py-14 sm:px-8 lg:grid-cols-[minmax(420px,0.92fr)_minmax(500px,1.08fr)] lg:gap-20 lg:px-12 lg:py-20 xl:gap-24">
         <div className="relative order-3 mx-auto mt-10 aspect-square w-full max-w-[440px] overflow-hidden rounded-full bg-[#f5eeee] lg:order-none lg:mt-0 lg:max-w-[645px]">
           <Image
-            src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695498/image-about.avif"
+            src="https://res.cloudinary.com/muif2bou/image/upload/v1790064532/image-about.avif"
             alt="Infinity Aesthetics Clinic doctor consulting with a patient"
             fill
             priority

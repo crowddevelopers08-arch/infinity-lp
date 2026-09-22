@@ -4,15 +4,15 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const RESULTS = [
-  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695486/bfaf-1.jpg",
-  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695486/bfaf-2.jpg",
-  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695487/bfaf-3.jpg",
-  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695487/bfaf-4.jpg",
-  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695487/bfaf-5.jpg",
-  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695487/bfaf-6.jpg",
-  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695488/bfaf-7.jpg",
-  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695488/bfaf-8.jpg",
-  "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695488/bfaf-9.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790064519/bfaf-1.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790064519/bfaf-2.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790064518/bfaf-3.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790064519/bfaf-4.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790064519/bfaf-5.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790064522/bfaf-6.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790064523/bfaf-7.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790064523/bfaf-8.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790064522/bfaf-9.jpg",
 ].map((src, index) => ({
   src,
   alt: "Hair restoration before and after result " + (index + 1),

@@ -9,37 +9,37 @@ const solutions = [
     title: "Excessive Hair Fall",
     description: "Noticing more hair on your pillow, in the shower, or while combing? Early diagnosis can help identify the cause and slow down further hair loss before it progresses.",
     treatments: "PRP • GFC • PGFRP® • IAC- Hair Regrowth System",
-    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695494/hair-loss.jpg",
+    image: "https://res.cloudinary.com/muif2bou/image/upload/v1790064531/hair-loss.jpg",
   },
   {
     title: "Hair Thinning & Reduced Density",
     description: "If your hair has become finer, lacks volume, or your scalp is becoming more visible, customised hair regrowth treatments can help strengthen existing follicles and improve overall density.",
     treatments: "PGFRP® • IAC- Hair Regrowth System",
-    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695510/Reduced-Density.avif",
+    image: "https://res.cloudinary.com/muif2bou/image/upload/v1790064925/Reduced-Density.avif",
   },
   {
     title: "Receding Hairline & Male Pattern Baldness",
     description: "A receding hairline or progressive baldness can affect both your appearance and confidence. Depending on the stage of hair loss, we recommend medical management, advanced hair regrowth therapies, or hair transplantation for natural-looking restoration.",
     treatments: "Hair Regrowth Therapies • Hair Transplant",
-    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695494/Hair-Transplants.avif",
+    image: "https://res.cloudinary.com/muif2bou/image/upload/v1790064531/Hair-Transplants.avif",
   },
   {
     title: "Patchy Hair Loss",
     description: "Hair loss in patches often requires a thorough medical evaluation to identify the underlying cause before beginning treatment.",
     treatments: "Medical Evaluation • Targeted Hair Restoration Therapies",
-    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695508/patchy.jpg",
+    image: "https://res.cloudinary.com/muif2bou/image/upload/v1790064923/patchy.jpg",
   },
   {
     title: "Advanced Hair Loss",
     description: "If you've experienced significant hair loss and have a healthy donor area, a hair transplant can help restore natural hair density and redefine your hairline.",
     treatments: "Advanced Hair Transplant",
-    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695485/Advanced-Hair-Loss.avif",
+    image: "https://res.cloudinary.com/muif2bou/image/upload/v1790064516/Advanced-Hair-Loss.avif",
   },
   {
     title: "Previous Hair Treatments Didn't Work?",
     description: "Not every treatment works for every patient. If you've tried PRP or other therapies without seeing the desired results, we'll evaluate your hair, review your treatment history, and recommend the next best step.",
     treatments: "PGFRP® • IAC Hair Regrowth System • Hair Transplant",
-    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695508/Previous-Hair.avif",
+    image: "https://res.cloudinary.com/muif2bou/image/upload/v1790064923/Previous-Hair.avif",
   },
 ]
 

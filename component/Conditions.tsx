@@ -18,7 +18,7 @@ const CONDITIONS: Condition[] = [
   {
     name: "Board-Certified Dermatologist",
     shortName: "Medical Expertise",
-    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695503/infinity-icon-1.png",
+    icon: "https://res.cloudinary.com/muif2bou/image/upload/v1790064783/infinity-icon-1.png",
     description:
       "Your treatment is planned and performed by Dr Narendra Nikumbh, a board-certified dermatologist with 12+ years of extensive expertise in hair restoration.",
     list: [],
@@ -27,25 +27,25 @@ const CONDITIONS: Condition[] = [
   {
     name: "Doctor-Led Hair Transplants",
     shortName: "Doctor-Led Care",
-    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695503/infinity-icon-2.png",
+    icon: "https://res.cloudinary.com/muif2bou/image/upload/v1790064919/infinity-icon-2.png",
     description:
       "Every hair transplant procedure is personally performed by the doctor, not delegated to technicians.",
     list: ["Every graft.", "Every angle.", "Every decision."],
-    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695494/Hair-Transplants.avif",
+    image: "https://res.cloudinary.com/muif2bou/image/upload/v1790064531/Hair-Transplants.avif",
   },
   {
     name: "Honest, Personalised Consultations",
     shortName: "Honest Guidance",
-    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695503/infinity-icon-3.png",
+    icon: "https://res.cloudinary.com/muif2bou/image/upload/v1790064919/infinity-icon-3.png",
     description:
       "We believe patients deserve clear answers, not sales pitches. If you're not the right candidate for a hair transplant, we'll tell you honestly and recommend alternatives better suited to your condition.",
     list: [],
-    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695489/Consultations.avif",
+    image: "https://res.cloudinary.com/muif2bou/image/upload/v1790064523/Consultations.avif",
   },
   {
     name: "Natural Hairline Design",
     shortName: "Natural Design",
-    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695504/infinity-icon-4.png",
+    icon: "https://res.cloudinary.com/muif2bou/image/upload/v1790064920/infinity-icon-4.png",
     description:
       "Every hairline is designed according to your facial proportions, age, existing density, and future pattern of hair loss to create results that look naturally yours.",
     list: [],
@@ -54,7 +54,7 @@ const CONDITIONS: Condition[] = [
   {
     name: "Advanced Hair Restoration Techniques",
     shortName: "Advanced Techniques",
-    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695504/infinity-icon-5.png",
+    icon: "https://res.cloudinary.com/muif2bou/image/upload/v1790064920/infinity-icon-5.png",
     description:
       "We use advanced FUE-based techniques and meticulous graft handling to maximise graft survival and promote healthy, natural hair growth.",
     listLabel: "Techniques",
@@ -69,7 +69,7 @@ const CONDITIONS: Condition[] = [
   {
     name: "Is Hair Loss Affecting Your Confidence?",
     shortName: "Confidence & Care",
-    icon: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695504/infinity-icon-6.png",
+    icon: "https://res.cloudinary.com/muif2bou/image/upload/v1790064920/infinity-icon-6.png",
     description:
       "Hair loss can change more than your appearance. When it begins to affect how you live, seeking professional guidance becomes important.",
     listLabel: "You may notice",
@@ -79,7 +79,7 @@ const CONDITIONS: Condition[] = [
       "Checking your hairline repeatedly",
       "Feeling less confident socially",
     ],
-    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695494/hair-loss.jpg",
+    image: "https://res.cloudinary.com/muif2bou/image/upload/v1790064531/hair-loss.jpg",
   },
 ]
 

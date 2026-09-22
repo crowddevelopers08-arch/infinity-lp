@@ -5,7 +5,7 @@ const steps = [
     description: "Every treatment plan is developed after a thorough consultation and clinical assessment.",
     stage: "Benefit 1",
     color: "#f52227",
-    iconPath: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695492/generic-icon-1.png",
+    iconPath: "https://res.cloudinary.com/muif2bou/image/upload/v1790064528/generic-icon-1.png",
   },
   {
     eyebrow: "Care Built Around You",
@@ -13,7 +13,7 @@ const steps = [
     description: "Your treatment is tailored to your stage of hair loss, scalp condition, and long-term goals.",
     stage: "Benefit 2",
     color: "#f52227",
-    iconPath: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695492/generic-icon-2.png",
+    iconPath: "https://res.cloudinary.com/muif2bou/image/upload/v1790064528/generic-icon-2.png",
   },
   {
     eyebrow: "Complete Solutions",
@@ -21,7 +21,7 @@ const steps = [
     description: "From non-surgical hair regrowth therapies to advanced hair transplant procedures, we offer comprehensive solutions under one roof.",
     stage: "Benefit 3",
     color: "#f52227",
-    iconPath: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695492/generic-icon-3.png",
+    iconPath: "https://res.cloudinary.com/muif2bou/image/upload/v1790064529/generic-icon-3.png",
   },
   {
     eyebrow: "Specialist Precision",
@@ -29,7 +29,7 @@ const steps = [
     description: "Hair transplant and needle-based treatments are personally performed by Dr. Narendra Nikumbh, ensuring precision, consistency, and personalised care.",
     stage: "Benefit 4",
     color: "#f52227",
-    iconPath: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695493/generic-icon-4.png",
+    iconPath: "https://res.cloudinary.com/muif2bou/image/upload/v1790064530/generic-icon-4.png",
   },
   {
     eyebrow: "Naturally You",
@@ -37,7 +37,7 @@ const steps = [
     description: "Whether restoring density or designing a new hairline, our goal is to achieve results that look natural and complement your features.",
     stage: "Benefit 5",
     color: "#f52227",
-    iconPath: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695493/generic-icon-5.png",
+    iconPath: "https://res.cloudinary.com/muif2bou/image/upload/v1790064530/generic-icon-5.png",
   },
 ]
 

@@ -6,15 +6,15 @@ export default function FaqShowcase() {
       <div aria-hidden className="hero-background-slideshow absolute inset-0 overflow-hidden">
         <span
           className="hero-background-slide"
-          style={{ backgroundImage: "url('https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695495/hero-1.jpg')" }}
+          style={{ backgroundImage: "url('https://res.cloudinary.com/muif2bou/image/upload/v1790064732/img-4.webp')" }}
         />
         <span
           className="hero-background-slide"
-          style={{ backgroundImage: "url('https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695501/img-4.webp')" }}
+          style={{ backgroundImage: "url('https://res.cloudinary.com/muif2bou/image/upload/v1790064732/img-4.webp')" }}
         />
         <span
           className="hero-background-slide"
-          style={{ backgroundImage: "url('https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695500/img-3.jpg')" }}
+          style={{ backgroundImage: "url('https://res.cloudinary.com/muif2bou/image/upload/v1790064732/img-3.jpg')" }}
         />
       </div>
       <div
@@ -54,7 +54,7 @@ export default function FaqShowcase() {
           <div className="hero-slow-item hero-slow-right hero-delay-3 relative mx-auto my-6 block aspect-[4/5] w-full max-w-md overflow-hidden sm:hidden">
             <div className="relative size-full overflow-hidden">
               <Image
-                src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695490/doctor1.png"
+                src="https://res.cloudinary.com/muif2bou/image/upload/v1790064529/doctor1.png"
                 alt="Hair restoration doctor in a modern clinic"
                 fill
                 sizes="88vw"
@@ -103,7 +103,7 @@ export default function FaqShowcase() {
 
         <div className="hero-slow-item hero-slow-right hero-delay-3 relative hidden min-h-[560px] w-full min-w-0 self-stretch overflow-hidden lg:block">
           <Image
-            src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695490/doctor1.png"
+            src="https://res.cloudinary.com/muif2bou/image/upload/v1790064529/doctor1.png"
             alt="Dr Narendra Nikumbh, board-certified dermatologist and hair restoration doctor"
             fill
             priority
@@ -118,7 +118,7 @@ export default function FaqShowcase() {
         <div className="hero-slow-item hero-slow-right hero-delay-3 relative mx-auto hidden aspect-[4/2] w-full max-w-md overflow-hidden sm:block lg:hidden">
           <div className="relative size-full overflow-hidden">
             <Image
-              src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695490/doctor1.png"
+              src="https://res.cloudinary.com/muif2bou/image/upload/v1790064529/doctor1.png"
               alt="Hair restoration doctor in a modern clinic"
               fill
               sizes="88vw"

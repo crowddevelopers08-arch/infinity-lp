@@ -5,7 +5,7 @@ export default function FinalCta() {
   return (
     <section aria-labelledby="final-cta-title" className="relative isolate overflow-hidden bg-[#171415] font-[family-name:var(--font-merriweather)] text-white">
       <Image
-        src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695492/final-cta-consultation.png"
+        src="https://res.cloudinary.com/muif2bou/image/upload/v1790064530/final-cta-consultation.png"
         alt="Dr Narendra Nikumbh discussing a hair and scalp assessment with a patient"
         fill
         priority={false}

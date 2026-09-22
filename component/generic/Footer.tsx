@@ -41,7 +41,7 @@ export default function Footer() {
               className="inline-flex rounded-xl bg-white px-4 py-3"
             >
               <Image
-                src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695505/logo.png"
+                src="https://res.cloudinary.com/muif2bou/image/upload/v1790064922/logo.png"
                 alt="Infinity Aesthetics Clinic"
                 width={176}
                 height={64}
