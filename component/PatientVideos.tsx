@@ -3,10 +3,10 @@
 import { useRef } from "react"
 
 const VIDEOS = [
-  { src: "/video/in-video-1.mp4", },
-  { src: "/video/in-video-2.mp4", },
-  { src: "/video/in-video-3.mp4", },
-  { src: "/video/in-video-4.mp4", },
+  { src: "https://res.cloudinary.com/muif2bou/video/upload/v1790069158/in-video-1.mp4", },
+  { src: "https://res.cloudinary.com/muif2bou/video/upload/v1790069034/in-video-3.mp4", },
+  { src: "https://res.cloudinary.com/muif2bou/video/upload/v1790069001/in-video-4.mp4", },
+  { src: "https://res.cloudinary.com/muif2bou/video/upload/v1790068990/in-video-2.mp4", },
 ]
 
 export default function PatientVideos() {
