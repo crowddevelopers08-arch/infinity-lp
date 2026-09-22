@@ -22,7 +22,7 @@ const CONDITIONS: Condition[] = [
     description:
       "Your treatment is planned and performed by Dr Narendra Nikumbh, a board-certified dermatologist with 12+ years of extensive expertise in hair restoration.",
     list: [],
-    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695490/dermologies.png",
+    image: "https://res.cloudinary.com/muif2bou/image/upload/v1790064523/dermologies.avif",
   },
   {
     name: "Doctor-Led Hair Transplants",
@@ -49,7 +49,7 @@ const CONDITIONS: Condition[] = [
     description:
       "Every hairline is designed according to your facial proportions, age, existing density, and future pattern of hair loss to create results that look naturally yours.",
     list: [],
-    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695489/codition-image.png",
+    image: "https://res.cloudinary.com/muif2bou/image/upload/v1790070142/infinity-image-2.png",
   },
   {
     name: "Advanced Hair Restoration Techniques",
@@ -64,7 +64,7 @@ const CONDITIONS: Condition[] = [
       "BIO FUE",
       "Standard FUE",
     ],
-    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695489/codition-image-1.png",
+    image: "https://res.cloudinary.com/muif2bou/image/upload/v1790070136/infinity-image-1.jpg",
   },
   {
     name: "Is Hair Loss Affecting Your Confidence?",

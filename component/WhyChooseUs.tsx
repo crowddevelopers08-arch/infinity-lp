@@ -19,7 +19,7 @@ const CANDIDATE_SIGNS = [
   },
   {
     title: "Want a permanent, natural-looking solution.",
-    image: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695505/infinity-image.png",
+    image: "https://res.cloudinary.com/muif2bou/image/upload/v1790070726/Hair-Transplant-3.webp",
   },
   {
     title: "Have already explored or completed medical hair loss treatments.",

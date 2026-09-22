@@ -84,9 +84,9 @@ export const metadata: Metadata = {
     images: ["https://res.cloudinary.com/muif2bou/image/upload/v1790064530/final-cta-consultation.png"],
   },
   icons: {
-    icon: [{ url: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786701649/web-icon-removebg-preview.png", type: "image/png" }],
-    apple: [{ url: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786701649/web-icon-removebg-preview.png", type: "image/png" }],
-    shortcut: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786701649/web-icon-removebg-preview.png",
+    icon: [{ url: "https://res.cloudinary.com/muif2bou/image/upload/v1790070372/infinit-logo.png", type: "image/png" }],
+    apple: [{ url: "https://res.cloudinary.com/muif2bou/image/upload/v1790070372/infinit-logo.png", type: "image/png" }],
+    shortcut: "https://res.cloudinary.com/muif2bou/image/upload/v1790070372/infinit-logo.png",
   },
 }
 

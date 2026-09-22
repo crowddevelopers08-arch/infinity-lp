@@ -14,10 +14,10 @@ const revealOffsets = [
 
 const photos = [
   { src: "https://res.cloudinary.com/muif2bou/image/upload/v1790064529/doctor1.png", alt: "Infinity Aesthetics Clinic interior", cell: "col-span-3 row-span-6 col-start-1 row-start-1" },
-  { src: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695496/hero-3.jpg", alt: "Modern treatment space at Infinity Aesthetics Clinic", cell: "col-span-2 row-span-3 col-start-4 row-start-1" },
-  { src: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786701665/IMG_0580.jpg", alt: "Doctor-led consultation at Infinity Aesthetics Clinic", cell: "col-span-2 row-span-3 col-start-4 row-start-4" },
+  { src: "https://res.cloudinary.com/muif2bou/image/upload/v1790069992/hero-3.jpg", alt: "Modern treatment space at Infinity Aesthetics Clinic", cell: "col-span-2 row-span-3 col-start-4 row-start-1" },
+  { src: "https://res.cloudinary.com/muif2bou/image/upload/v1790069977/IMG_0580.jpg", alt: "Doctor-led consultation at Infinity Aesthetics Clinic", cell: "col-span-2 row-span-3 col-start-4 row-start-4" },
   { src: "https://res.cloudinary.com/muif2bou/image/upload/v1790064732/img-4.webp", alt: "Infinity Aesthetics Clinic treatment room", cell: "col-span-3 row-span-6 col-start-6 row-start-1" },
-  { src: "https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695495/hero-1.jpg", alt: "Patient care at Infinity Aesthetics Clinic", cell: "col-span-4 row-span-3 col-start-9 row-start-1" },
+  { src: "https://res.cloudinary.com/muif2bou/image/upload/v1790069972/hero-1.jpg", alt: "Patient care at Infinity Aesthetics Clinic", cell: "col-span-4 row-span-3 col-start-9 row-start-1" },
   { src: "https://res.cloudinary.com/muif2bou/image/upload/v1790064732/img-6.webp", alt: "Clinic equipment and facilities", cell: "col-span-2 row-span-3 col-start-9 row-start-4" },
   { src: "https://res.cloudinary.com/muif2bou/image/upload/v1790064733/img-7.webp", alt: "Welcoming clinic environment", cell: "col-span-2 row-span-3 col-start-11 row-start-4" },
 ]

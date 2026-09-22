@@ -44,7 +44,7 @@ export default function AboutClinic() {
 
           <div className="relative aspect-[0.82/1] overflow-hidden rounded-[50%] bg-[#231f20]">
             <Image
-              src="https://res.cloudinary.com/x6ec5hqm/image/upload/v1786695487/about-infinity.jpg"
+              src="https://res.cloudinary.com/muif2bou/image/upload/v1790069976/about-infinity.jpg"
               alt="A doctor discussing a personalised treatment plan with a patient"
               fill
               sizes="(max-width: 1024px) 90vw, 510px"
