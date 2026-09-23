@@ -1,0 +1,44 @@
+// Scalp scan leads (/scan). Connection URLs live in prisma.config.ts (CLI) and lib/scan/db.ts (runtime).
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model ScanLead {
+  id               String   @id @default(cuid())
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  /// Always "scalp-scan-flow" (the step-by-step scalp scan)
+  source           String
+  name             String
+  phone            String
+  ageGroup         String
+  concern          String
+  duration         String
+  consultationTime String
+  pageUrl          String?
+  /// "Pending" until the scan's photo step finishes, then "Captured" | "Uploaded" | "Skipped".
+  photoStatus      String?
+  /// Secret handed to the browser that created the lead; required to attach its photo.
+  uploadToken      String?
+  telecrmStatus    String   @default("Pending")
+  telecrmLeadId    String?
+  photo            ScanPhoto?
+
+  @@index([createdAt])
+  @@index([phone])
+}
+
+model ScanPhoto {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  leadId    String   @unique
+  lead      ScanLead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  mimeType  String
+  data      Bytes
+}
