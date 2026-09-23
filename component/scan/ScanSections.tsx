@@ -502,9 +502,8 @@ export function TransplantEligibility() {
           <Kicker light>Hair Transplant Eligibility</Kicker>
           <h2 className="mt-3 text-3xl font-bold leading-tight tracking-tight sm:mt-4 sm:text-4xl">
             Considering{" "}
-            <span className="relative inline-block font-black italic text-[#ff5b5f]">
+            <span className="inline-block font-black italic text-[#ff5b5f]">
               Hair Transplant?
-              <span aria-hidden className="absolute -bottom-1 left-0 h-0.5 w-full origin-left -rotate-1 bg-[#f52227]" />
             </span>{" "}
             Start With the{" "}
             <span className="inline-flex -rotate-1 items-center rounded-full border border-[#f52227] bg-[#f52227]/10 px-3 py-0.5 text-[0.82em] shadow-[0_0_0_3px_rgba(245,34,39,0.12)]">
@@ -515,16 +514,6 @@ export function TransplantEligibility() {
             Before choosing a hair transplant, understand if it suits your hair loss condition. Our team evaluates your
             hair loss stage, goals, donor availability and other factors to guide you better.
           </p>
-          {/* below desktop: the photo shows inline instead of as a background */}
-          <div className="relative mt-6 aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 lg:hidden">
-            <Image
-              src={IMAGES.finalCta}
-              alt="Dr Narendra Nikumbh discussing a hair and scalp assessment with a patient"
-              fill
-              sizes="(max-width: 1024px) 92vw, 1px"
-              className="object-cover object-[68%_center]"
-            />
-          </div>
           <div className="mt-6 sm:mt-8">
             <ScanCta dark>Check My Hair Transplant Eligibility</ScanCta>
           </div>
@@ -617,7 +606,7 @@ export function AssessmentCta() {
             </p>
             <h2 className="mt-3 text-[1.9rem] font-bold sm:mt-4 leading-tight tracking-tight text-white sm:text-4xl lg:text-[2.75rem]">
               Ready to{" "}
-              <span className="font-black italic underline decoration-white/55 decoration-[3px] underline-offset-[8px]">
+              <span className="font-black italic">
                 Understand Your Hair Loss
               </span>{" "}
               Better?
