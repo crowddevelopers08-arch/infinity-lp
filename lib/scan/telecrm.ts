@@ -48,9 +48,13 @@ async function send(phone: string, name: string | undefined, notes: string[]): P
       signal: AbortSignal.timeout(15000),
     })
 
-    if (res.status === 204) return { status: "Synced", leadId: null }
+    if (res.status === 204) {
+      console.log("[TeleCRM scan] Accepted: 204 No Content")
+      return { status: "Synced", leadId: null }
+    }
 
     const text = await res.text()
+    console.log("[TeleCRM scan] Response:", res.status, text.slice(0, 500) || "(empty body)")
     if (!res.ok) {
       console.warn("[TeleCRM scan] Rejected:", res.status, text.slice(0, 300))
       return { status: `Failed (${res.status})`, leadId: null }

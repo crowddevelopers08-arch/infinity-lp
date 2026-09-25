@@ -154,10 +154,56 @@ export function resizeImage(dataUrl: string, maxSide = 1024, quality = 0.82): Pr
   })
 }
 
-/** Attaches the scalp photo (or records a skip) to a lead saved by the scan flow. */
-export async function uploadScanPhoto(saved: SavedLead, status: PhotoStatus, image: string | null) {
+function loadImage(src: string): Promise<HTMLImageElement> {
+  return new Promise((resolve, reject) => {
+    const img = new Image()
+    img.onload = () => resolve(img)
+    img.onerror = () => reject(new Error("Could not read image"))
+    img.src = src
+  })
+}
+
+/** Joins the scalp photos into one labelled grid (2 per row), so the lead keeps a single photo record. */
+export async function combineScanPhotos(images: { label: string; src: string }[], cellWidth = 768): Promise<string> {
+  const loaded = await Promise.all(images.map((image) => loadImage(image.src)))
+  const gap = 16
+  const cellHeight = Math.round((cellWidth * 4) / 3)
+  const cols = Math.min(2, loaded.length)
+  const rows = Math.ceil(loaded.length / cols)
+  const canvas = document.createElement("canvas")
+  canvas.width = cols * cellWidth + gap * (cols - 1)
+  canvas.height = rows * cellHeight + gap * (rows - 1)
+  const ctx = canvas.getContext("2d")
+  if (!ctx) throw new Error("Canvas unavailable")
+  ctx.fillStyle = "#ffffff"
+  ctx.fillRect(0, 0, canvas.width, canvas.height)
+  loaded.forEach((img, index) => {
+    const x = (index % cols) * (cellWidth + gap)
+    const y = Math.floor(index / cols) * (cellHeight + gap)
+    // Crop to the 3:4 cell, like the preview the visitor saw.
+    const scale = Math.max(cellWidth / img.naturalWidth, cellHeight / img.naturalHeight)
+    const sw = cellWidth / scale
+    const sh = cellHeight / scale
+    ctx.drawImage(img, (img.naturalWidth - sw) / 2, (img.naturalHeight - sh) / 2, sw, sh, x, y, cellWidth, cellHeight)
+    const label = images[index].label.toUpperCase()
+    ctx.font = "bold 32px sans-serif"
+    const labelWidth = ctx.measureText(label).width + 36
+    ctx.fillStyle = "#f52227"
+    ctx.fillRect(x + 20, y + 20, labelWidth, 52)
+    ctx.fillStyle = "#ffffff"
+    ctx.textBaseline = "middle"
+    ctx.fillText(label, x + 38, y + 47)
+  })
+  return canvas.toDataURL("image/jpeg", 0.85)
+}
+
+export type ScanShot = { label: string; src: string }
+
+/** Attaches the scalp photos (or records a skip) to a lead saved by the scan flow. */
+export async function uploadScanPhoto(saved: SavedLead, status: PhotoStatus, shots: ScanShot[]) {
   if (!saved.uploadToken) return
-  const payload = status === "Skipped" || !image ? null : await resizeImage(image)
+  const image = shots.length > 1 ? await combineScanPhotos(shots) : shots[0]?.src
+  const payload = status === "Skipped" || !image ? null : await resizeImage(image, 1600)
   const response = await fetch(`/api/scan/leads/${encodeURIComponent(saved.leadId)}/photo`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

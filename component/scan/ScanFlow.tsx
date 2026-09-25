@@ -36,6 +36,7 @@ import {
   type HairConcern,
   type PhotoStatus,
   type SavedLead,
+  type ScanShot,
   type ScanLead,
 } from "./scanData"
 import { ScanFrame, TreatmentOptionCard } from "./ScanSections"
@@ -95,37 +96,6 @@ const QUESTIONS: Question[] = [
 // The scalp photo is the final step of the progress bar.
 const TOTAL_STEPS = QUESTIONS.length + 1
 
-type Marker = { label: string; left: string; top: string }
-
-// Areas the team will look at for the selected concern — an observation guide, not a diagnosis.
-function reviewAreas(concern?: string): Marker[] {
-  if (concern === "Receding Hairline") {
-    return [
-      { label: "Left temple", left: "26%", top: "32%" },
-      { label: "Hairline", left: "50%", top: "12%" },
-      { label: "Right temple", left: "74%", top: "32%" },
-    ]
-  }
-  if (concern === "Baldness" || concern === "Hair Transplant") {
-    return [
-      { label: "Hairline", left: "50%", top: "12%" },
-      { label: "Crown", left: "50%", top: "40%" },
-      { label: "Density", left: "76%", top: "26%" },
-    ]
-  }
-  if (concern === "Scalp Concern") {
-    return [
-      { label: "Scalp surface", left: "34%", top: "30%" },
-      { label: "Parting", left: "62%", top: "12%" },
-    ]
-  }
-  return [
-    { label: "Left side", left: "26%", top: "32%" },
-    { label: "Hairline", left: "50%", top: "12%" },
-    { label: "Right side", left: "74%", top: "32%" },
-  ]
-}
-
 export default function ScanFlow() {
   const router = useRouter()
   const [open, setOpen] = useState(false)
@@ -135,7 +105,7 @@ export default function ScanFlow() {
   const [error, setError] = useState("")
   const [submitting, setSubmitting] = useState(false)
   const [direction, setDirection] = useState<"forward" | "backward">("forward")
-  const [photo, setPhoto] = useState<string | null>(null)
+  const [photos, setPhotos] = useState<ScanShot[]>([])
   const scrollRef = useRef<HTMLDivElement>(null)
   const stageRef = useRef<Stage>("quiz")
   const advancingRef = useRef(false)
@@ -152,7 +122,7 @@ export default function ScanFlow() {
       setStep(0)
       setAnswers({})
       setError("")
-      setPhoto(null)
+      setPhotos([])
       savedLeadRef.current = null
     }
     setOpen(true)
@@ -261,12 +231,12 @@ export default function ScanFlow() {
     }, 260)
   }
 
-  const finishCamera = (image: string | null, status: PhotoStatus) => {
-    setPhoto(image)
+  const finishCamera = (shots: ScanShot[], status: PhotoStatus) => {
+    setPhotos(shots)
     setStage("analyzing")
     // Upload in the background; the visitor's summary never waits on it.
     if (savedLeadRef.current) {
-      uploadScanPhoto(savedLeadRef.current, status, image).catch((err) => console.warn("[scan] photo upload:", err))
+      uploadScanPhoto(savedLeadRef.current, status, shots).catch((err) => console.warn("[scan] photo upload:", err))
     }
   }
 
@@ -277,6 +247,8 @@ export default function ScanFlow() {
   const progressStep = stage === "quiz" ? step + 1 : TOTAL_STEPS
   const progress = stage === "quiz" ? (step / TOTAL_STEPS) * 100 : stage === "camera" ? ((TOTAL_STEPS - 1) / TOTAL_STEPS) * 100 : 100
   const firstName = answers.name?.trim().split(/\s+/)[0]
+  // The summary shows two photos side by side, so it gets a wider layout.
+  const wide = stage === "result"
   const animation = direction === "forward" ? "scan-step-in" : "scan-step-in-reverse"
 
   return (
@@ -289,7 +261,7 @@ export default function ScanFlow() {
     >
       {/* top bar */}
       <div className="sticky top-0 z-20 border-b border-[#eadfe0] bg-white/95 backdrop-blur">
-        <div className="mx-auto flex max-w-3xl items-center justify-between gap-3 px-4 pt-3 sm:px-6">
+        <div className={`mx-auto flex ${wide ? "max-w-5xl" : "max-w-3xl"} items-center justify-between gap-3 px-4 pt-3 sm:px-6`}>
           <Image src={IMAGES.logo} alt="Infinity Aesthetics and Clinic" width={500} height={250} className="h-auto w-24 sm:w-28" />
           <button
             type="button"
@@ -301,7 +273,7 @@ export default function ScanFlow() {
           </button>
         </div>
         {stage !== "result" && (
-          <div className="mx-auto max-w-3xl px-4 pb-3 pt-2 sm:px-6">
+          <div className={`mx-auto ${wide ? "max-w-5xl" : "max-w-3xl"} px-4 pb-3 pt-2 sm:px-6`}>
             <div className="mb-2 flex items-center justify-between">
               {stage === "quiz" ? (
                 <button
@@ -330,7 +302,7 @@ export default function ScanFlow() {
         )}
       </div>
 
-      <div className="mx-auto w-full max-w-3xl px-4 py-6 sm:px-6 sm:py-10">
+      <div className={`mx-auto w-full ${wide ? "max-w-5xl" : "max-w-3xl"} px-4 py-6 sm:px-6 sm:py-10`}>
         {stage === "quiz" && (
           <div className="rounded-[1.75rem] border border-[#eadfe0] bg-white p-5 shadow-[0_20px_60px_rgba(35,31,32,0.08)] sm:p-8">
             <div key={`q-${step}`} className={animation}>
@@ -426,18 +398,18 @@ export default function ScanFlow() {
 
         {stage === "camera" && <CameraStep firstName={firstName} onDone={finishCamera} />}
 
-        {stage === "analyzing" && <AnalyzingStep photo={photo} onDone={finishAnalyzing} />}
+        {stage === "analyzing" && <AnalyzingStep photo={photos[0]?.src ?? null} onDone={finishAnalyzing} />}
 
         {stage === "result" && (
           <ResultStep
             answers={answers}
-            photo={photo}
+            photos={photos}
             onConfirm={() => {
               track("scan_complete", { concern: answers.concern })
               router.push(THANK_YOU_PATH)
             }}
             onRetake={() => {
-              setPhoto(null)
+              setPhotos([])
               setStage("camera")
             }}
           />
@@ -449,7 +421,34 @@ export default function ScanFlow() {
 
 /* ── Camera capture ─────────────────────────────────────────── */
 
-function CameraStep({ firstName, onDone }: { firstName?: string; onDone: (image: string | null, status: PhotoStatus) => void }) {
+// The team reviews the scalp from all sides: hairline, both temples/sides and the crown.
+const SHOTS = [
+  {
+    label: "Front",
+    title: "Front of your scalp",
+    tip: "Face the camera, tilt your head slightly down and keep your hairline clearly visible in good light.",
+  },
+  {
+    label: "Left",
+    title: "Left side of your scalp",
+    tip: "Turn your head to the right so your left temple and side of the scalp face the camera.",
+  },
+  {
+    label: "Right",
+    title: "Right side of your scalp",
+    tip: "Turn your head to the left so your right temple and side of the scalp face the camera.",
+  },
+  {
+    label: "Back",
+    title: "Back of your scalp",
+    tip: "Turn around and capture your crown and back of the head. Switch to the back camera or ask someone to help.",
+  },
+] as const
+
+function CameraStep({ firstName, onDone }: { firstName?: string; onDone: (shots: ScanShot[], status: PhotoStatus) => void }) {
+  const [shotIndex, setShotIndex] = useState(0)
+  const [taken, setTaken] = useState<(ScanShot & { source: PhotoStatus })[]>([])
+  const shot = SHOTS[shotIndex]
   const [captureSource, setCaptureSource] = useState<PhotoStatus>("Captured")
   // Only mounted client-side, after the user has started the scan.
   const [supported] = useState(() => typeof navigator !== "undefined" && !!navigator.mediaDevices?.getUserMedia)
@@ -491,7 +490,7 @@ function CameraStep({ firstName, onDone }: { firstName?: string; onDone: (image:
           await videoRef.current.play()
         }
         setState("live")
-        setMessage("Hold still and keep your hairline or scalp area clearly visible in good light.")
+        setMessage("") // the current shot's tip is shown while live
       })
       .catch(() => {
         if (session !== sessionRef.current) return
@@ -535,9 +534,35 @@ function CameraStep({ firstName, onDone }: { firstName?: string; onDone: (image:
     setCaptured(canvas.toDataURL("image/jpeg", 0.9))
     setCaptureSource("Captured")
     setState("captured")
-    setMessage("Photo captured. Review it below.")
+    setMessage(`${shot.label} photo captured. Review it below.`)
     stopCamera()
-    track("scan_photo", { method: "camera" })
+    track("scan_photo", { method: "camera", view: shot.label })
+  }
+
+  const finish = (list: (ScanShot & { source: PhotoStatus })[]) => {
+    stopCamera()
+    if (!list.length) return onDone([], "Skipped")
+    const status: PhotoStatus = list.some((item) => item.source === "Captured") ? "Captured" : "Uploaded"
+    onDone(
+      list.map(({ label, src }) => ({ label, src })),
+      status,
+    )
+  }
+
+  // Moves on to the next view, or finishes after the last one.
+  const advance = (list: (ScanShot & { source: PhotoStatus })[]) => {
+    setTaken(list)
+    if (shotIndex < SHOTS.length - 1) {
+      setShotIndex(shotIndex + 1)
+      openCamera(facing)
+      return
+    }
+    finish(list)
+  }
+
+  const acceptShot = () => {
+    if (!captured) return
+    advance([...taken, { label: shot.label, src: captured, source: captureSource }])
   }
 
   const switchCamera = () => {
@@ -555,24 +580,57 @@ function CameraStep({ firstName, onDone }: { firstName?: string; onDone: (image:
       setCaptured(String(reader.result))
       setCaptureSource("Uploaded")
       setState("captured")
-      setMessage("Photo added. Review it below.")
-      track("scan_photo", { method: "upload" })
+      setMessage(`${shot.label} photo added. Review it below.`)
+      track("scan_photo", { method: "upload", view: shot.label })
     }
     reader.readAsDataURL(file)
+    event.target.value = "" // allow picking the same file for the next view
   }
 
   return (
     <div className="scan-step-in text-center">
       <p className="text-xs font-bold uppercase tracking-widest text-[#f52227]">Share Your Hair Details</p>
       <h2 className="mt-2 text-2xl font-bold leading-tight sm:text-3xl">
-        {firstName ? `Thanks, ${firstName}! ` : ""}Now let&apos;s scan your scalp
+        {shotIndex === 0 ? `${firstName ? `Thanks, ${firstName}! ` : ""}Now let's scan your scalp` : `Now the ${shot.title.toLowerCase()}`}
       </h2>
-      <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-[#62595c]">{message}</p>
+      <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-[#62595c]">
+        We need {SHOTS.length} photos: the front, left side, right side and back of your scalp.
+      </p>
+
+      <ol className="mx-auto mt-5 grid max-w-md grid-cols-4 gap-2">
+        {SHOTS.map((item, index) => {
+          const done = taken.some((t) => t.label === item.label)
+          const current = index === shotIndex
+          return (
+            <li
+              key={item.label}
+              className={`flex items-center justify-center gap-1.5 rounded-full border px-2 py-2 text-xs font-bold ${
+                current
+                  ? "border-[#f52227] bg-[#fff0f0] text-[#231f20]"
+                  : done
+                    ? "border-[#f52227]/30 bg-white text-[#231f20]"
+                    : "border-[#eadfe0] bg-white text-[#62595c]"
+              }`}
+            >
+              <span
+                className={`grid size-5 flex-none place-items-center rounded-full text-[0.65rem] ${
+                  done || current ? "bg-[#f52227] text-white" : "border-2 border-[#eadfe0]"
+                }`}
+              >
+                {done ? <LuCheck className="size-3" strokeWidth={3} /> : index + 1}
+              </span>
+              {item.label}
+            </li>
+          )
+        })}
+      </ol>
+
+      <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-[#62595c]">{state === "live" ? shot.tip : message}</p>
 
       <div className="relative mx-auto mt-6 w-full max-w-sm overflow-hidden rounded-[1.75rem] border border-[#eadfe0] bg-[#171415] shadow-[0_30px_80px_rgba(35,31,32,0.2)]">
         {captured ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={captured} alt="Your scalp photo" className="aspect-[3/4] w-full object-cover" />
+          <img src={captured} alt={`${shot.title} photo`} className="aspect-[3/4] w-full object-cover" />
         ) : (
           <>
             <video
@@ -594,6 +652,9 @@ function CameraStep({ firstName, onDone }: { firstName?: string; onDone: (image:
             {state === "live" && <ScanFrame />}
           </>
         )}
+        <span className="absolute left-3 top-3 rounded-full bg-[#f52227] px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-white">
+          {shot.label} · {shotIndex + 1}/{SHOTS.length}
+        </span>
       </div>
 
       <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
@@ -628,10 +689,12 @@ function CameraStep({ firstName, onDone }: { firstName?: string; onDone: (image:
             </button>
             <button
               type="button"
-              onClick={() => onDone(captured, captureSource)}
+              onClick={acceptShot}
               className="btn-wave relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-[#f52227] px-7 py-3.5 text-sm font-bold text-white shadow-[0_12px_30px_rgba(245,34,39,0.28)] transition-colors hover:bg-[#231f20]"
             >
-              <span className="relative z-10">Analyse My Scalp</span>
+              <span className="relative z-10">
+                {shotIndex < SHOTS.length - 1 ? `Next: ${SHOTS[shotIndex + 1].label} Side` : "Analyse My Scalp"}
+              </span>
               <LuArrowRight className="relative z-10 size-4" />
             </button>
           </>
@@ -654,18 +717,24 @@ function CameraStep({ firstName, onDone }: { firstName?: string; onDone: (image:
           onClick={() => fileRef.current?.click()}
           className="inline-flex items-center gap-2 text-[#231f20] underline-offset-4 hover:text-[#f52227] hover:underline"
         >
-          <LuImageUp className="size-4 text-[#f52227]" /> Upload a photo
+          <LuImageUp className="size-4 text-[#f52227]" /> Upload {shot.label.toLowerCase()} photo
         </button>
         <button
           type="button"
           onClick={() => {
+            if (shotIndex > 0) {
+              // Skip just this view and carry on with the rest.
+              track("scan_photo", { method: "skipped", view: shot.label })
+              advance(taken)
+              return
+            }
             stopCamera()
             track("scan_photo", { method: "skipped" })
-            onDone(null, "Skipped")
+            onDone([], "Skipped")
           }}
           className="text-[#62595c] underline-offset-4 hover:text-[#f52227] hover:underline"
         >
-          Skip for now
+          {shotIndex > 0 ? `Skip ${shot.label.toLowerCase()} photo` : "Skip for now"}
         </button>
       </div>
       <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={onUpload} />
@@ -740,19 +809,18 @@ function AnalyzingStep({ photo, onDone }: { photo: string | null; onDone: () => 
 
 function ResultStep({
   answers,
-  photo,
+  photos,
   onConfirm,
   onRetake,
 }: {
   answers: Answers
-  photo: string | null
+  photos: ScanShot[]
   onConfirm: () => void
   onRetake: () => void
 }) {
   const concern = (answers.concern || "Other") as HairConcern
   const options = (CONCERN_OPTIONS[concern] ?? CONCERN_OPTIONS.Other).map((id) => TREATMENTS.find((t) => t.id === id)!)
   const firstName = answers.name?.trim().split(/\s+/)[0]
-  const markers = reviewAreas(answers.concern)
 
   const summary = [
     { label: "Primary Hair Concern", value: answers.concern },
@@ -773,36 +841,29 @@ function ResultStep({
           Our team will review your concern and help you understand possible next steps.
         </p>
 
-        <div className="mt-6 grid gap-5 sm:grid-cols-[180px_1fr] sm:items-center">
-          <div className="relative mx-auto aspect-[3/4] w-52 overflow-hidden rounded-2xl border border-white/10 bg-white/5 sm:w-full">
-            {photo ? (
-              <>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={photo} alt="Your scalp photo" className="size-full object-cover" />
-                {markers.map((marker) => (
-                  <span
-                    key={marker.label}
-                    className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1"
-                    style={{ left: marker.left, top: marker.top }}
-                  >
-                    <span className="size-3 rounded-full border-2 border-white bg-[#f52227] shadow-[0_0_0_5px_rgba(245,34,39,0.3)]" />
-                    <span className="whitespace-nowrap rounded-full bg-[#f52227] px-1.5 py-0.5 text-[0.55rem] font-bold">
-                      {marker.label}
-                    </span>
-                  </span>
-                ))}
-              </>
-            ) : (
-              <button
-                type="button"
-                onClick={onRetake}
-                className="flex size-full flex-col items-center justify-center gap-2 p-3 text-xs font-bold text-white/60 hover:text-white"
-              >
-                <LuCamera className="size-7" />
-                Add a scalp photo
-              </button>
-            )}
-          </div>
+        <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center">
+          {photos.length ? (
+            <div className={`grid gap-3 ${photos.length > 1 ? "grid-cols-2" : "mx-auto w-full max-w-60"}`}>
+              {photos.map((shot) => (
+                <figure key={shot.label} className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={shot.src} alt={`${shot.label} of your scalp`} className="size-full object-cover" />
+                  <figcaption className="absolute bottom-2 left-2 rounded-full bg-black/60 px-2.5 py-1 text-[0.6rem] font-bold uppercase tracking-wider backdrop-blur">
+                    {shot.label}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={onRetake}
+              className="mx-auto flex aspect-[3/4] w-full max-w-60 flex-col items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 p-3 text-xs font-bold text-white/60 hover:text-white"
+            >
+              <LuCamera className="size-7" />
+              Add scalp photos
+            </button>
+          )}
 
           <dl className="grid grid-cols-2 gap-2.5">
             {summary.map((item) => (
@@ -813,9 +874,6 @@ function ResultStep({
             ))}
           </dl>
         </div>
-        {photo && (
-          <p className="mt-4 text-xs text-white/50">Marked areas show where our team will look based on your selected concern.</p>
-        )}
       </div>
 
       <div className="rounded-[1.75rem] border border-[#eadfe0] bg-white p-5 sm:p-8">
