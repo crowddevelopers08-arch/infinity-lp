@@ -1,14 +1,20 @@
-const IMAGE_NUMBERS = [2, 6, 7, 8, 9, 12, 16, 18, 19, 20, 21, 24, 30, 31, 39, 46, 47]
+// Every before/after photo in /public. "30 (1)" is left out because it is the
+// same photo as "26" with a different crop.
+const PREFIX = "/Best Hair Transplant Clinic in Thane Infinity Aesthetics Clinic "
+const NAURAL = "Naural Hairline Dr Narendra Nikumbh HFD BIO FUE "
+const NATURAL = "Natural Hairline Dr Narendra Nikumbh HFD BIO FUE "
 
-function imagePath(number: number) {
-  // The file for 47 is spelled "Natural"; the rest use "Naural".
-  const hairline = number === 47 ? "Natural" : "Naural"
-  return encodeURI(
-    `/Best Hair Transplant Clinic in Thane Infinity Aesthetics Clinic ${hairline} Hairline Dr Narendra Nikumbh HFD BIO FUE ${number}.jpg`,
-  )
-}
+const FILES = [
+  ...[
+    "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "14 (1)",
+    "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27",
+    "28", "29", "30", "30b", "31", "31 (1)", "32", "33", "34", "34 (1)", "35",
+    "35 (1)", "36", "38", "39", "39 (1)", "40", "41", "42", "43", "44", "45", "46",
+  ].map((name) => NAURAL + name + ".jpg"),
+  ...["47", "48", "50", "51", "52", "53jpg", "54"].map((name) => NATURAL + name + ".jpg"),
+]
 
-export const BEFORE_AFTER_RESULTS = IMAGE_NUMBERS.map((number, index) => ({
-  src: imagePath(number),
+export const BEFORE_AFTER_RESULTS = FILES.map((file, index) => ({
+  src: encodeURI(PREFIX + file),
   alt: "Hair transplant before and after result " + (index + 1) + " – Infinity Aesthetics Clinic, Thane",
 }))

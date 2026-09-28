@@ -130,24 +130,15 @@ export default function BeforeAfter() {
         </div>
 
         <div
-          className="mt-3 flex justify-center gap-2"
-          aria-label="Select a result"
+          className="mx-auto mt-3 flex max-w-xs items-center gap-3"
+          aria-live="polite"
         >
-          {RESULTS.map((result, index) => (
-            <button
-              key={result.src}
-              type="button"
-              onClick={() => setActiveIndex(index)}
-              aria-label={"Show result " + (index + 1)}
-              aria-current={index === activeIndex ? "true" : undefined}
-              className={
-                "h-2 rounded-full transition-all duration-300 " +
-                (index === activeIndex
-                  ? "w-8 bg-[#f52227]"
-                  : "w-2 bg-[#231f20]/25 hover:bg-[#231f20]/50")
-              }
+          <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#231f20]/15">
+            <div
+              className="h-full rounded-full bg-[#f52227] transition-all duration-500"
+              style={{ width: ((activeIndex + 1) / RESULTS.length) * 100 + "%" }}
             />
-          ))}
+          </div>
         </div>
       </div>
     </section>
