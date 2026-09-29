@@ -8,6 +8,7 @@ export const runtime = "nodejs"
 const MAX_BYTES = 2 * 1024 * 1024 // images are resized in the browser first; this is a safety cap
 const UPLOAD_WINDOW_MS = 60 * 60 * 1000 // a visitor can retake / replace their photo for an hour
 const STATUSES = ["Captured", "Uploaded", "Skipped"] as const
+const VIEWS = ["Front", "Left", "Right", "Back", "Top"] as const
 
 function sameToken(a: string, b: string) {
   const ha = createHash("sha256").update(a).digest()
@@ -28,7 +29,7 @@ function sniffImageType(bytes: Buffer) {
 /** Attach the scalp photo (or record a skip) to a lead created by the scan flow. */
 export async function POST(req: NextRequest, ctx: RouteContext<"/api/scan/leads/[id]/photo">) {
   const { id } = await ctx.params
-  let body: { token?: unknown; status?: unknown; image?: unknown }
+  let body: { token?: unknown; status?: unknown; image?: unknown; views?: unknown }
   try {
     body = await req.json()
   } catch {
@@ -74,8 +75,11 @@ export async function POST(req: NextRequest, ctx: RouteContext<"/api/scan/leads/
     prisma.scanLead.update({ where: { id }, data: { photoStatus: status } }),
   ])
 
+  // Which scalp views are in the combined image (only known labels, in capture order).
+  const views = photo && Array.isArray(body.views) ? VIEWS.filter((view) => (body.views as unknown[]).includes(view)) : []
+
   const dashboardUrl = `${req.nextUrl.origin}/scan/dashboard?lead=${id}`
-  after(() => pushScanPhotoNoteToTeleCRM(lead.phone, status, dashboardUrl))
+  after(() => pushScanPhotoNoteToTeleCRM(lead.phone, status, dashboardUrl, views))
 
   return NextResponse.json({ success: true })
 }

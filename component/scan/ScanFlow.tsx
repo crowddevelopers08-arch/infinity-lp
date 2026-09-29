@@ -421,7 +421,7 @@ export default function ScanFlow() {
 
 /* ── Camera capture ─────────────────────────────────────────── */
 
-// The team reviews the scalp from all sides: hairline, both temples/sides and the crown.
+// The team reviews the scalp from all sides: hairline, both temples/sides, the back and the top/crown.
 const SHOTS = [
   {
     label: "Front",
@@ -441,7 +441,12 @@ const SHOTS = [
   {
     label: "Back",
     title: "Back of your scalp",
-    tip: "Turn around and capture your crown and back of the head. Switch to the back camera or ask someone to help.",
+    tip: "Turn around and capture the back of your head. Switch to the back camera or ask someone to help.",
+  },
+  {
+    label: "Top",
+    title: "Top of your scalp",
+    tip: "Bow your head forward and hold the camera above it so the top of your scalp and crown fill the frame. Switch to the back camera or ask someone to help.",
   },
 ] as const
 
@@ -594,17 +599,17 @@ function CameraStep({ firstName, onDone }: { firstName?: string; onDone: (shots:
         {shotIndex === 0 ? `${firstName ? `Thanks, ${firstName}! ` : ""}Now let's scan your scalp` : `Now the ${shot.title.toLowerCase()}`}
       </h2>
       <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-[#62595c]">
-        We need {SHOTS.length} photos: the front, left side, right side and back of your scalp.
+        We need {SHOTS.length} photos: the front, left side, right side, back and top of your scalp.
       </p>
 
-      <ol className="mx-auto mt-5 grid max-w-md grid-cols-4 gap-2">
+      <ol className="mx-auto mt-5 grid max-w-md grid-cols-5 gap-1.5 sm:gap-2">
         {SHOTS.map((item, index) => {
           const done = taken.some((t) => t.label === item.label)
           const current = index === shotIndex
           return (
             <li
               key={item.label}
-              className={`flex items-center justify-center gap-1.5 rounded-full border px-2 py-2 text-xs font-bold ${
+              className={`flex flex-col items-center justify-center gap-1 rounded-2xl border px-1 py-1.5 text-[0.65rem] font-bold sm:flex-row sm:gap-1.5 sm:rounded-full sm:px-2 sm:py-2 sm:text-xs ${
                 current
                   ? "border-[#f52227] bg-[#fff0f0] text-[#231f20]"
                   : done
@@ -693,7 +698,7 @@ function CameraStep({ firstName, onDone }: { firstName?: string; onDone: (shots:
               className="btn-wave relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-[#f52227] px-7 py-3.5 text-sm font-bold text-white shadow-[0_12px_30px_rgba(245,34,39,0.28)] transition-colors hover:bg-[#231f20]"
             >
               <span className="relative z-10">
-                {shotIndex < SHOTS.length - 1 ? `Next: ${SHOTS[shotIndex + 1].label} Side` : "Analyse My Scalp"}
+                {shotIndex < SHOTS.length - 1 ? `Next: ${SHOTS[shotIndex + 1].label} Photo` : "Analyse My Scalp"}
               </span>
               <LuArrowRight className="relative z-10 size-4" />
             </button>
@@ -843,7 +848,11 @@ function ResultStep({
 
         <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center">
           {photos.length ? (
-            <div className={`grid gap-3 ${photos.length > 1 ? "grid-cols-2" : "mx-auto w-full max-w-60"}`}>
+            <div
+              className={`grid gap-3 ${
+                photos.length > 4 ? "grid-cols-3" : photos.length > 1 ? "grid-cols-2" : "mx-auto w-full max-w-60"
+              }`}
+            >
               {photos.map((shot) => (
                 <figure key={shot.label} className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/10 bg-white/5">
                   {/* eslint-disable-next-line @next/next/no-img-element */}

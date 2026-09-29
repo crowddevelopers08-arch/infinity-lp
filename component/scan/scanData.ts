@@ -163,12 +163,12 @@ function loadImage(src: string): Promise<HTMLImageElement> {
   })
 }
 
-/** Joins the scalp photos into one labelled grid (2 per row), so the lead keeps a single photo record. */
+/** Joins the scalp photos into one labelled grid (2 per row, 3 for 5+ views), so the lead keeps a single photo record. */
 export async function combineScanPhotos(images: { label: string; src: string }[], cellWidth = 768): Promise<string> {
   const loaded = await Promise.all(images.map((image) => loadImage(image.src)))
   const gap = 16
   const cellHeight = Math.round((cellWidth * 4) / 3)
-  const cols = Math.min(2, loaded.length)
+  const cols = Math.min(loaded.length > 4 ? 3 : 2, loaded.length)
   const rows = Math.ceil(loaded.length / cols)
   const canvas = document.createElement("canvas")
   canvas.width = cols * cellWidth + gap * (cols - 1)
@@ -207,7 +207,12 @@ export async function uploadScanPhoto(saved: SavedLead, status: PhotoStatus, sho
   const response = await fetch(`/api/scan/leads/${encodeURIComponent(saved.leadId)}/photo`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ token: saved.uploadToken, status: payload ? status : "Skipped", image: payload }),
+    body: JSON.stringify({
+      token: saved.uploadToken,
+      status: payload ? status : "Skipped",
+      image: payload,
+      views: payload ? shots.map((shot) => shot.label) : [],
+    }),
     keepalive: !payload, // lets a "skip" finish even if the tab closes
   })
   if (!response.ok) throw new Error(`Photo upload failed (${response.status})`)

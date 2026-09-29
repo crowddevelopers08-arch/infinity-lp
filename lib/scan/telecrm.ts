@@ -113,10 +113,13 @@ export function pushScanLeadToTeleCRM(lead: TelecrmLeadInput) {
 }
 
 /** Adds a note to the existing TeleCRM lead once the scalp photo step finishes. */
-export function pushScanPhotoNoteToTeleCRM(phone: string, photoStatus: string, dashboardUrl: string) {
-  const note =
-    photoStatus === "Skipped"
-      ? "Scalp Photo: Skipped by patient"
-      : `Scalp Photo: ${photoStatus} — view in dashboard: ${dashboardUrl}`
-  return send(phone, undefined, [note])
+export function pushScanPhotoNoteToTeleCRM(
+  phone: string,
+  photoStatus: string,
+  dashboardUrl: string,
+  views: readonly string[] = [],
+) {
+  if (photoStatus === "Skipped") return send(phone, undefined, ["Scalp Photo: Skipped by patient"])
+  const viewText = views.length ? ` (${views.length} views: ${views.join(", ")})` : ""
+  return send(phone, undefined, [`Scalp Photo: ${photoStatus}${viewText} — view in dashboard: ${dashboardUrl}`])
 }
