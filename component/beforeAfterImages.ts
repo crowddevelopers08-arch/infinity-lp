@@ -1,20 +1,66 @@
-// Every before/after photo in /public. "30 (1)" is left out because it is the
-// same photo as "26" with a different crop.
-const PREFIX = "/Best Hair Transplant Clinic in Thane Infinity Aesthetics Clinic "
-const NAURAL = "Naural Hairline Dr Narendra Nikumbh HFD BIO FUE "
-const NATURAL = "Natural Hairline Dr Narendra Nikumbh HFD BIO FUE "
-
-const FILES = [
-  ...[
-    "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "14 (1)",
-    "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27",
-    "28", "29", "30", "30b", "31", "31 (1)", "32", "33", "34", "34 (1)", "35",
-    "35 (1)", "36", "38", "39", "39 (1)", "40", "41", "42", "43", "44", "45", "46",
-  ].map((name) => NAURAL + name + ".jpg"),
-  ...["47", "48", "50", "51", "52", "53jpg", "54"].map((name) => NATURAL + name + ".jpg"),
+// Every before/after photo, hosted on Cloudinary (cloud "muif2bou").
+// "30 (1)" is left out because it is the same photo as "26" with a different crop.
+const URLS = [
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664054/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_2.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664055/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_3.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664055/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_4.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664056/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_5.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664056/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_6.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664058/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_7.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664058/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_8.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664058/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_9.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664059/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_10.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664059/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_11.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664060/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_12.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664061/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_13.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664063/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_14.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664061/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_14_1.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664062/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_15.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664062/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_16.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664063/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_17.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664064/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_18.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664064/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_19.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664066/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_20.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664066/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_21.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664067/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_22.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664066/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_23.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664068/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_24.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664067/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_25.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664071/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_26.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664071/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_27.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664069/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_28.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664070/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_29.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664071/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_30.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664073/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_30b.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664073/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_31.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664074/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_31_1.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664074/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_32.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664074/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_33.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664076/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_34.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664074/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_34_1.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664077/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_35.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664078/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_35_1.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664077/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_36.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664079/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_38.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664080/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_39.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664078/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_39_1.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664081/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_40.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664081/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_41.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664082/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_42.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664081/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_43.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664082/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_44.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664083/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_45.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664084/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_46.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664047/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Natural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_47.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664047/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Natural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_48.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664052/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Natural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_50.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664051/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Natural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_51.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664052/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Natural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_52.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664053/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Natural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_53jpg.jpg",
+  "https://res.cloudinary.com/muif2bou/image/upload/v1790664054/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Natural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_54.jpg",
 ]
 
-export const BEFORE_AFTER_RESULTS = FILES.map((file, index) => ({
-  src: encodeURI(PREFIX + file),
+export const BEFORE_AFTER_RESULTS = URLS.map((src, index) => ({
+  src,
   alt: "Hair transplant before and after result " + (index + 1) + " – Infinity Aesthetics Clinic, Thane",
 }))
