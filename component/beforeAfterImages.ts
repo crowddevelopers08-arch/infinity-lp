@@ -1,5 +1,5 @@
 // Every before/after photo, hosted on Cloudinary (cloud "muif2bou").
-// "30 (1)" is left out because it is the same photo as "26" with a different crop.
+// "30 (1)" is left out because it is the photo  "26" with a different crop.
 const URLS = [
   "https://res.cloudinary.com/muif2bou/image/upload/v1790664054/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_2.jpg",
   "https://res.cloudinary.com/muif2bou/image/upload/v1790664055/Best_Hair_Transplant_Clinic_in_Thane_Infinity_Aesthetics_Clinic_Naural_Hairline_Dr_Narendra_Nikumbh_HFD_BIO_FUE_3.jpg",
