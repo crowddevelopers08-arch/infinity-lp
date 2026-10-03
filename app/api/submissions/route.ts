@@ -84,7 +84,13 @@ async function pushToSheet(body: SubmissionBody, timestamp: string, telecrmStatu
     body.pageUrl,
     telecrmStatus,
   ];
-  const sheetName = body.source.toLowerCase() === 'generic consult' ? 'genericleads' : 'Submissions';
+  const sourceKey = body.source.toLowerCase();
+  const sheetName =
+    sourceKey === 'generic consult'
+      ? 'genericleads'
+      : sourceKey === 'review page'
+        ? 'review funnel'
+        : 'Submissions';
 
   const res = await fetch(url, {
     method: 'POST',
