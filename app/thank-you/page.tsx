@@ -1,14 +1,18 @@
 import type { Metadata } from "next"
-import { LuCheck } from "react-icons/lu"
+import { LuArrowLeft, LuCheck } from "react-icons/lu"
 import PageFooter from "@/component/generic/PageFooter"
 import PageHeader from "@/component/generic/PageHeader"
 import Script from "next/script"
-import ThankYouRedirect from "@/component/ThankYouRedirect"
 
 export const metadata: Metadata = {
   title: "Thank You",
   description: "Your hair consultation request has been received by Infinity Aesthetics Clinic.",
   robots: { index: false, follow: false },
+}
+
+function safePath(from: string | undefined) {
+  if (from && from.startsWith("/") && !from.startsWith("//")) return from
+  return "/"
 }
 
 export default async function GenericThankYouPage({
@@ -17,7 +21,7 @@ export default async function GenericThankYouPage({
   searchParams: Promise<{ from?: string | string[] }>
 }) {
   const { from } = await searchParams
-  const fromPath = Array.isArray(from) ? from[0] : from
+  const homePath = safePath(Array.isArray(from) ? from[0] : from)
 
   return (
     <>
@@ -45,7 +49,12 @@ export default async function GenericThankYouPage({
             <p className="mx-auto mt-4 max-w-md border-l-2 border-[#f52227] pl-4 text-left text-sm font-bold leading-relaxed text-[#231f20]">
               The right treatment begins with the right diagnosis.
             </p>
-            <ThankYouRedirect from={fromPath} />
+            <a
+              href={homePath}
+              className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-[#f52227] px-8 py-3.5 text-sm font-bold text-white shadow-[0_10px_24px_rgba(245,34,39,0.24)] transition-all hover:-translate-y-0.5 hover:bg-[#231f20]"
+            >
+              <LuArrowLeft className="size-4" /> Back to Home
+            </a>
           </div>
         </section>
         <PageFooter />

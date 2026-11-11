@@ -2,7 +2,6 @@
 
 import { FormEvent, useEffect, useId, useRef, useState } from "react"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
 import { LuCheck, LuPhone, LuSparkles, LuUserRound, LuX } from "react-icons/lu"
 
 export default function ConsultationModal() {
@@ -12,7 +11,6 @@ export default function ConsultationModal() {
   const [submitError, setSubmitError] = useState("")
   const nameInputRef = useRef<HTMLInputElement>(null)
   const titleId = useId()
-  const router = useRouter()
 
   useEffect(() => {
     const openFromTrigger = (event: MouseEvent) => {
@@ -79,10 +77,10 @@ export default function ConsultationModal() {
       form.reset()
       setSubmitted(true)
       setIsOpen(false)
-      router.push(`/hair-transplant/thank-you?from=${encodeURIComponent(window.location.pathname)}`)
+      // Full page load (not client-side routing) so the thank-you page loads fresh
+      window.location.assign(`/hair-transplant/thank-you?from=${encodeURIComponent(window.location.pathname)}`)
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : "Unable to submit your request. Please try again.")
-    } finally {
       setIsSubmitting(false)
     }
   }

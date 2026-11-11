@@ -1,7 +1,6 @@
 "use client"
 
 import { FormEvent, useState } from "react"
-import { useRouter } from "next/navigation"
 import { LuChevronDown, LuPhone, LuUserRound } from "react-icons/lu"
 
 const concerns = [
@@ -18,7 +17,6 @@ const concerns = [
 export default function GenericConsultation() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState("")
-  const router = useRouter()
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -45,10 +43,10 @@ export default function GenericConsultation() {
       if (!response.ok || !result.success) throw new Error(result.error || "Unable to submit your consultation")
 
       form.reset()
-      router.push(`/thank-you?from=${encodeURIComponent(window.location.pathname)}`)
+      // Full page load (not client-side routing) so the thank-you page loads fresh
+      window.location.assign(`/thank-you?from=${encodeURIComponent(window.location.pathname)}`)
     } catch (submitError) {
       setError(submitError instanceof Error ? submitError.message : "Unable to submit. Please try again.")
-    } finally {
       setIsSubmitting(false)
     }
   }
