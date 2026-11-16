@@ -42,3 +42,22 @@ model ScanPhoto {
   mimeType  String
   data      Bytes
 }
+
+/// Hair transplant funnel leads (/ht). Shown on /ht/admin-dashboard.
+model HtLead {
+  id                  String   @id @default(cuid())
+  createdAt           DateTime @default(now())
+  name                String
+  phone               String
+  email               String?
+  city                String
+  budget              String
+  planning            String
+  concern             String
+  locationComfortable Boolean
+  pageUrl             String?
+  telecrmStatus       String   @default("Pending")
+
+  @@index([createdAt])
+  @@index([phone])
+}

@@ -28,7 +28,9 @@ export default async function GenericThankYouPage({
       {/* Google Ads Conversion Tracking */}
       <Script id="google-ads-conversion">
         {`
-          gtag('event', 'conversion', {'send_to': 'AW-18361909357/RqLsCP6HouQcEO2A0rNE'});
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+          window.gtag('event', 'conversion', {'send_to': 'AW-18361909357/RqLsCP6HouQcEO2A0rNE'});
         `}
       </Script>
 
