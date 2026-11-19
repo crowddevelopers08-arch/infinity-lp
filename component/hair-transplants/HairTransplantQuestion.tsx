@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import BrandLogo from "./BrandLogo";
 import { revealDelay } from "./reveal";
 import { BEFORE_AFTER_RESULTS } from "@/component/beforeAfterImages";
@@ -13,7 +13,7 @@ const images = {
   clinic: { src: `${CLOUDINARY}/v1790064732/img-4.webp`, alt: "Treatment room at Infinity Aesthetics Clinic, Thane" },
   doctor: { src: `${CLOUDINARY}/v1790064529/doctor1.png`, alt: "Dr Narendra Nikumbh, board-certified dermatologist and hair restoration doctor" },
   beforeAfter: BEFORE_AFTER_RESULTS[0],
-  concerns: { src: `${CLOUDINARY}/v1790064531/hair-loss.jpg`, alt: "Hair loss assessment at Infinity Aesthetics Clinic" },
+  concerns: { src: `${CLOUDINARY}/v1790064539/images01.png`, alt: "Man worried about thinning hair on his crown and hairline" },
 };
 
 const clinicGallery = [
@@ -50,6 +50,18 @@ export default function HairTransplantQuestion() {
   }
   const inputs = useRef<(HTMLInputElement | null)[]>([]);
   const locationInputs = useRef<(HTMLInputElement | null)[]>([]);
+  // Picking an answer moves on by itself after a short beat, so the highlight is seen first.
+  // The pending flag also stops a double-tap from skipping a question.
+  const advanceTimer = useRef<number | null>(null);
+  const scheduleAdvance = useCallback(() => {
+    if (advanceTimer.current !== null) return;
+    advanceTimer.current = window.setTimeout(() => {
+      advanceTimer.current = null;
+      if (step < questions.length - 1) setStep(step + 1);
+      else setPhase("result");
+    }, 220);
+  }, [step]);
+  useEffect(() => () => { if (advanceTimer.current !== null) window.clearTimeout(advanceTimer.current); }, []);
   useEffect(() => {
     if (phase !== "question" && phase !== "location") return;
     const activeOptions = phase === "location" ? locationOptions : options;
@@ -58,11 +70,11 @@ export default function HairTransplantQuestion() {
       const index = "abcdef".indexOf(event.key.toLowerCase());
       if (event.key.length !== 1 || index < 0 || index >= activeOptions.length) return;
       if (phase === "location") { setLocationAnswer(index); locationInputs.current[index]?.focus(); }
-      else { setAnswers(previous => previous.map((answer, position) => position === step ? index : answer)); inputs.current[index]?.focus(); }
+      else { setAnswers(previous => previous.map((answer, position) => position === step ? index : answer)); inputs.current[index]?.focus(); scheduleAdvance(); }
     };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [step, options, phase]);
+  }, [step, options, phase, scheduleAdvance]);
   function advance() {
     if (step < questions.length - 1) setStep(step + 1);
     else setPhase("result");
@@ -123,9 +135,9 @@ export default function HairTransplantQuestion() {
     );
   }
   return (
-    <main key={phase === "question" ? `question-${step}` : phase} className="relative isolate h-svh overflow-hidden bg-white text-ink">
+    <main key={phase === "question" ? `question-${step}` : phase} className="relative isolate h-svh overflow-hidden bg-white text-ink [@media(max-width:700px)]:h-auto [@media(max-width:700px)]:min-h-svh [@media(max-width:700px)]:overflow-visible">
       <BrandLogo />
-      <div className="grid h-full min-h-0 grid-cols-2 items-center gap-x-[8vw] px-[8vw] pt-[clamp(84px,15svh,120px)] pb-[clamp(44px,7svh,64px)] [@media(max-width:700px)]:grid-cols-1 [@media(max-width:700px)]:grid-rows-[auto_minmax(0,1fr)] [@media(max-width:700px)]:gap-4 [@media(max-width:700px)]:px-[9vw]">
+      <div className="grid h-full min-h-0 [@media(max-width:700px)]:h-auto grid-cols-2 items-center gap-x-[8vw] px-[8vw] pt-[clamp(84px,15svh,120px)] pb-[clamp(44px,7svh,64px)] [@media(max-width:700px)]:grid-cols-1 [@media(max-width:700px)]:grid-rows-[auto_auto] [@media(max-width:700px)]:pb-24 [@media(max-width:700px)]:gap-4 [@media(max-width:700px)]:px-[9vw]">
         {phase === "question" ? <>
           <form className="relative min-w-0 w-full" onSubmit={(event) => { event.preventDefault(); advance(); }}>
             <span className="absolute top-[7px] -left-[27px] grid h-5 w-[17px] place-items-center rounded bg-ink text-sm font-bold text-white [@media(max-width:440px)]:top-1 [@media(max-width:440px)]:-left-6" aria-label={`Question ${step + 1}`}>{step + 1}</span>
@@ -134,7 +146,7 @@ export default function HairTransplantQuestion() {
               <legend className="reveal-in mb-[clamp(12px,3svh,30px)] p-0 text-[clamp(17px,min(1.76vw,3.5svh),30px)] leading-[1.3] tracking-[-.4px]" style={revealDelay(questionTitleIndex)}>{title}</legend>
               <div className="flex w-full max-w-[542px] flex-col gap-1.5 [@media(max-width:900px)]:max-w-none">
                 {options.map((option, i) => <label key={option} className={`reveal-in relative flex min-h-[clamp(34px,5.8svh,49px)] cursor-pointer items-center gap-2 rounded-[10px] border border-ink/8 px-2.5 py-[clamp(4px,1svh,8px)] text-[clamp(13px,min(1.25vw,2.5svh),20px)] leading-[1.3] tracking-[-.3px] transition-[background,border-color] duration-150 hover:bg-ink/6 has-[:focus-visible]:ring-4 has-[:focus-visible]:ring-brand/30 ${selected === i ? "bg-brand/5 outline-2 -outline-offset-1 outline-brand" : "bg-ink/3"}`} style={revealDelay(questionTitleIndex + 1 + i)}>
-                  <input className="absolute size-px opacity-0" ref={(element) => { inputs.current[i] = element; }} type="radio" name={name} value={option} checked={selected === i} required onChange={() => setSelected(i)} />
+                  <input className="absolute size-px opacity-0" ref={(element) => { inputs.current[i] = element; }} type="radio" name={name} value={option} checked={selected === i} required onChange={() => setSelected(i)} onClick={(event) => { if (event.detail > 0) scheduleAdvance(); }} />
                   <span className={`grid h-[26px] flex-[0_0_25px] place-items-center rounded-[3px] border text-[13px] font-semibold tracking-normal ${selected === i ? "border-brand bg-brand text-white" : "border-ink/20 bg-white"}`} aria-hidden="true">{"ABCDEF"[i]}</span><span>{option}</span>
                 </label>)}
               </div>
@@ -142,18 +154,18 @@ export default function HairTransplantQuestion() {
             <button className="reveal-in mt-[clamp(12px,3svh,28px)] h-[clamp(34px,5svh,44px)] min-w-[60px] cursor-pointer rounded-lg border-0 bg-brand px-4 text-xl font-semibold text-white hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink" style={revealDelay(questionButtonIndex)} type="submit">OK</button>
             {step === 0 && <p className="reveal-in mt-[clamp(10px,2svh,18px)] max-w-[542px] text-[clamp(11px,min(.9vw,1.8svh),14px)] leading-[1.4] text-ink/50" style={revealDelay(questionButtonIndex + 1)}>Results vary by individual. Suitability and graft requirement are confirmed after in-clinic consultation.</p>}
           </form>
-          {step === 0 ? <div className="reveal-in relative aspect-[3/2] w-full max-w-[calc((100svh-164px)*1.5)] min-h-0 justify-self-center overflow-hidden border border-ink/10 [@media(max-width:700px)]:h-full [@media(max-width:700px)]:max-h-[30svh] [@media(max-width:700px)]:max-w-[360px] [@media(max-width:700px)]:aspect-auto" style={revealDelay(questionImageIndex)}>
+          {step === 0 ? <div className="reveal-in relative aspect-[3/2] w-full max-w-[calc((100svh-164px)*1.5)] min-h-0 justify-self-center overflow-hidden border border-ink/10 [@media(max-width:700px)]:max-w-[420px]" style={revealDelay(questionImageIndex)}>
             <div className="grid h-full w-full grid-cols-2 grid-rows-2 gap-0.5 bg-white">
               {clinicGallery.map(image => <div key={image.src} className="relative min-h-0 min-w-0 overflow-hidden">
                 <Image src={image.src} alt={image.alt} fill priority className="object-cover object-top" sizes="(max-width: 700px) 41vw, 22vw" />
               </div>)}
             </div>
-          </div> : step === 1 ? <figure className="reveal-in relative flex aspect-square w-full max-w-[calc(100svh-164px)] min-h-0 flex-col justify-self-center overflow-hidden border border-ink/10 bg-white [@media(max-width:700px)]:h-full [@media(max-width:700px)]:max-h-[30svh] [@media(max-width:700px)]:max-w-[360px] [@media(max-width:700px)]:aspect-auto" style={revealDelay(questionImageIndex)}>
+          </div> : step === 1 ? <figure className="reveal-in relative flex aspect-square w-full max-w-[calc(100svh-164px)] min-h-0 flex-col justify-self-center overflow-hidden border border-ink/10 bg-white [@media(max-width:700px)]:max-w-[420px]" style={revealDelay(questionImageIndex)}>
             <div className="relative min-h-0 flex-1">
               <Image src={images.beforeAfter.src} alt={images.beforeAfter.alt} fill priority className="object-contain" sizes="(max-width: 700px) 82vw, 43vw" />
             </div>
             <figcaption className="shrink-0 bg-white px-3 py-[clamp(6px,1.4svh,12px)] text-center text-[clamp(11px,1vw,15px)] text-ink/70">Individual results may vary</figcaption>
-          </figure> : <div className="reveal-in relative aspect-[3/2] w-full max-w-[calc((100svh-164px)*1.5)] min-h-0 justify-self-center overflow-hidden [@media(max-width:700px)]:h-full [@media(max-width:700px)]:max-h-[30svh] [@media(max-width:700px)]:max-w-[360px] [@media(max-width:700px)]:aspect-auto" style={revealDelay(questionImageIndex)}>
+          </figure> : <div className="reveal-in relative aspect-[3/2] w-full max-w-[calc((100svh-164px)*1.5)] min-h-0 justify-self-center overflow-hidden [@media(max-width:700px)]:max-w-[420px]" style={revealDelay(questionImageIndex)}>
             <Image src={images.concerns.src} alt={images.concerns.alt} fill priority className="object-contain" sizes="(max-width: 700px) 82vw, 43vw" />
           </div>}
         </> : phase === "result" ? <>
@@ -165,7 +177,7 @@ export default function HairTransplantQuestion() {
             </div>
             <button className="reveal-in mt-[clamp(12px,3svh,28px)] h-[clamp(34px,5svh,44px)] min-w-[60px] cursor-pointer rounded-lg border-0 bg-brand px-4 text-xl font-semibold text-white hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink" style={revealDelay(1 + trustParagraphs.length)} type="button" onClick={handleContinue}>Continue</button>
           </div>
-          <div className="reveal-in relative aspect-[3/2] w-full max-w-[calc((100svh-164px)*1.5)] min-h-0 justify-self-center overflow-hidden border border-ink/10 [@media(max-width:700px)]:h-full [@media(max-width:700px)]:max-h-[30svh] [@media(max-width:700px)]:max-w-[360px] [@media(max-width:700px)]:aspect-auto" style={revealDelay(2 + trustParagraphs.length)}>
+          <div className="reveal-in relative aspect-[3/2] w-full max-w-[calc((100svh-164px)*1.5)] min-h-0 justify-self-center overflow-hidden border border-ink/10 [@media(max-width:700px)]:max-w-[420px]" style={revealDelay(2 + trustParagraphs.length)}>
             <Image src={images.doctor.src} alt={images.doctor.alt} fill priority className="object-cover object-top" sizes="(max-width: 700px) 82vw, 43vw" />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/85 via-ink/55 to-transparent px-4 pb-[clamp(10px,2svh,18px)] pt-[clamp(28px,6svh,56px)] text-white">
               <p className="text-[clamp(15px,1.5vw,22px)] leading-tight font-bold">Dr Narendra Nikumbh</p>
@@ -219,7 +231,7 @@ export default function HairTransplantQuestion() {
             <button className="reveal-in mt-[clamp(12px,3svh,28px)] h-[clamp(34px,5svh,44px)] min-w-[60px] cursor-pointer rounded-lg border-0 bg-brand px-4 text-xl font-semibold text-white hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink disabled:cursor-wait disabled:opacity-60" style={revealDelay(2 + locationOptions.length)} type="submit" disabled={saving}>{saving ? "Saving…" : "OK"}</button>
             {saveError && <p className="mt-3 text-sm font-medium text-brand" role="alert">{saveError}</p>}
           </form>
-          <div className="reveal-in relative flex aspect-[8/5] w-full max-w-[calc((100svh-164px)*1.6)] min-h-0 flex-col justify-self-center overflow-hidden bg-white text-ink [@media(max-width:700px)]:h-full [@media(max-width:700px)]:max-h-[30svh] [@media(max-width:700px)]:max-w-[360px] [@media(max-width:700px)]:aspect-auto" style={revealDelay(3 + locationOptions.length)}>
+          <div className="reveal-in relative flex aspect-[8/5] w-full max-w-[calc((100svh-164px)*1.6)] min-h-0 flex-col justify-self-center overflow-hidden bg-white text-ink [@media(max-width:700px)]:max-w-[420px]" style={revealDelay(3 + locationOptions.length)}>
             <div className="shrink-0 px-4 py-[clamp(8px,1.8svh,16px)] text-center">
               <h2 className="text-[clamp(18px,2.2vw,32px)] leading-[1.1] font-extrabold tracking-tight text-ink">THANE WEST, MAHARASHTRA</h2>
             </div>
