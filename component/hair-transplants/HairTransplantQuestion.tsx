@@ -59,7 +59,7 @@ export default function HairTransplantQuestion() {
       advanceTimer.current = null;
       if (step < questions.length - 1) setStep(step + 1);
       else setPhase("result");
-    }, 220);
+    }, 100);
   }, [step]);
   useEffect(() => () => { if (advanceTimer.current !== null) window.clearTimeout(advanceTimer.current); }, []);
   useEffect(() => {
@@ -151,7 +151,6 @@ export default function HairTransplantQuestion() {
                 </label>)}
               </div>
             </fieldset>
-            <button className="reveal-in mt-[clamp(12px,3svh,28px)] h-[clamp(34px,5svh,44px)] min-w-[60px] cursor-pointer rounded-lg border-0 bg-brand px-4 text-xl font-semibold text-white hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink" style={revealDelay(questionButtonIndex)} type="submit">OK</button>
             {step === 0 && <p className="reveal-in mt-[clamp(10px,2svh,18px)] max-w-[542px] text-[clamp(11px,min(.9vw,1.8svh),14px)] leading-[1.4] text-ink/50" style={revealDelay(questionButtonIndex + 1)}>Results vary by individual. Suitability and graft requirement are confirmed after in-clinic consultation.</p>}
           </form>
           {step === 0 ? <div className="reveal-in relative aspect-[3/2] w-full max-w-[calc((100svh-164px)*1.5)] min-h-0 justify-self-center overflow-hidden border border-ink/10 [@media(max-width:700px)]:max-w-[420px]" style={revealDelay(questionImageIndex)}>
@@ -213,7 +212,7 @@ export default function HairTransplantQuestion() {
                 <input className="w-full border-0 border-b border-ink/25 bg-transparent pb-2 text-[clamp(14px,1.4vw,19px)] text-ink outline-none placeholder:text-ink/36 focus:border-brand" type="email" placeholder="name@example.com" value={contact.email} onChange={(event) => setContactField("email", event.target.value)} />
               </label>
             </div>
-            <button className="reveal-in mt-[clamp(16px,3.5svh,32px)] h-[clamp(34px,5svh,44px)] min-w-[60px] cursor-pointer rounded-lg border-0 bg-brand px-4 text-xl font-semibold text-white hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink" style={revealDelay(5)} type="submit">OK</button>
+            <button className="reveal-in mt-[clamp(16px,3.5svh,32px)] h-[clamp(34px,5svh,44px)] min-w-[110px] cursor-pointer rounded-lg border-0 bg-brand px-4 text-xl font-semibold text-white hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink" style={revealDelay(5)} type="submit">Continue</button>
           </form>
         </div> : <>
           <form className="relative min-w-0 w-full" onSubmit={handleLocationSubmit}>
@@ -228,7 +227,7 @@ export default function HairTransplantQuestion() {
                 </label>)}
               </div>
             </fieldset>
-            <button className="reveal-in mt-[clamp(12px,3svh,28px)] h-[clamp(34px,5svh,44px)] min-w-[60px] cursor-pointer rounded-lg border-0 bg-brand px-4 text-xl font-semibold text-white hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink disabled:cursor-wait disabled:opacity-60" style={revealDelay(2 + locationOptions.length)} type="submit" disabled={saving}>{saving ? "Saving…" : "OK"}</button>
+            <button className="reveal-in mt-[clamp(12px,3svh,28px)] h-[clamp(34px,5svh,44px)] min-w-[110px] cursor-pointer rounded-lg border-0 bg-brand px-4 text-xl font-semibold text-white hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink disabled:cursor-wait disabled:opacity-60" style={revealDelay(2 + locationOptions.length)} type="submit" disabled={saving}>{saving ? "Saving…" : "Submit"}</button>
             {saveError && <p className="mt-3 text-sm font-medium text-brand" role="alert">{saveError}</p>}
           </form>
           <div className="reveal-in relative flex aspect-[8/5] w-full max-w-[calc((100svh-164px)*1.6)] min-h-0 flex-col justify-self-center overflow-hidden bg-white text-ink [@media(max-width:700px)]:max-w-[420px]" style={revealDelay(3 + locationOptions.length)}>

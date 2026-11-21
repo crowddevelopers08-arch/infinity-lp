@@ -169,7 +169,7 @@ async function pushToTeleCRM(body: SubmissionBody): Promise<TelecrmResponse | nu
   if (!phone) return null;
 
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 15000);
+  const timeout = setTimeout(() => controller.abort(), 5000);
 
   const fields: Record<string, string> = { phone, name: body.name };
 
