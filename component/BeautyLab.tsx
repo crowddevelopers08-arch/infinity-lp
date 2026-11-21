@@ -27,7 +27,7 @@ const FEATURES = [
     title: "Step 3: Precision Hair Transplant",
     description: (
       <>
-        Using <strong className="font-semibold text-[#342e30]">advanced FUE hair transplant techniques</strong>, healthy hair
+        Using <strong className="font-semibold text-[#342e30]">advanced FUE hair transplant technique</strong>, healthy hair
         follicles are carefully extracted and implanted while maintaining natural direction, density, and graft survival.
       </>
     ),
